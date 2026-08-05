@@ -2,6 +2,8 @@
 
 Este proyecto viene de una sesión previa en Claude.ai (chat). Aquí está todo el contexto necesario para continuar sin perder decisiones ya tomadas.
 
+**Ubicación (actualizado 2026-08-05):** el proyecto vive ahora en `C:\Users\laura\Documents\aires-portfolio` — se movió desde `Downloads` a pedido de Laura, para no perderlo si vacía la carpeta de Descargas. Puede quedar una copia vieja en `C:\Users\laura\Downloads\aires-portfolio` — es solo un remanente, **la copia real y con el historial de git es la de `Documents`**. Si una sesión nueva de Claude Code abre por defecto la de Downloads, hay que reabrirla apuntando a la de `Documents`.
+
 ## Quién es la clienta
 Laura Aires — diseñadora gráfica sénior y directora creativa, 16 años de experiencia (Bogotá y Caracas). Actualmente Lead Designer en Backbone Technology. Construyendo su marca personal "Aires" para reemplazar su portafolio desactualizado de Behance (behance.net/lauraaires).
 
