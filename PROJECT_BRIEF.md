@@ -79,8 +79,8 @@ Todo el HTML/CSS es vanilla (sin framework) — decisión deliberada por simplic
 - **Contenido real por proyecto** — `proyecto.html` es una plantilla única; cuando Laura mande material de proyectos concretos, hay que decidir si se duplica el archivo por proyecto o se pasa a un sistema con datos (fuera de alcance por ahora, es sitio estático).
 - **Testimonios reales** — 3 recomendaciones de LinkedIn para reemplazar las tarjetas placeholder en Home.
 - **Redes sociales** — falta la URL real de LinkedIn (y confirmar si agrega Instagram) en Bio, Contacto y footer.
-- **Deck de disciplinas del Home desincronizado** — Home todavía muestra 6 (incl. "UX/UI"), Servicios ahora tiene 5 (sin UX/UI, con "Creatividad con IA" en vez de "Transformación con IA"). Confirmar con Laura si el Home debe actualizarse para que coincida.
-- **Deploy** — aún no se ha desplegado a ningún dominio. Sugerido: Vercel o Netlify, gratis, conectado a GitHub para deploy automático.
+- **Deploy — YA EN VIVO (2026-08-05).** Repo en GitHub: `github.com/lauraaires89-lab/Airescreative`, conectado a Vercel con auto-deploy (cada push a `main` se publica solo). Como el sitio real vive en `site/*.html` con `assets/` en la raíz del repo, `/` redirige (redirect real, no rewrite — ver nota abajo) a `/site/index.html`; `vercel.json` tiene esa regla, `_redirects` es la misma regla por si algún día se usa Netlify en vez de Vercel.
+  - **Importante para futuros cambios:** si algún día se reestructuran las carpetas, revisar que `vercel.json` siga apuntando bien — usa un **redirect** (cambia la URL del navegador a `/site/...`) y no un **rewrite** (mantiene la URL en `/`), porque con rewrite los links relativos internos (`trabajo.html`, `servicios.html`, etc.) se rompían con 404 al no resolver contra `/site/`.
 
 ## Cómo prefiere trabajar Laura
 No es técnica — no espera tocar código. Da dirección visual y contenido (imágenes, textos, gustos/disgustos), espera que Claude construya y ajuste. Le gusta ver resultados rápido y iterar con feedback directo y específico.
