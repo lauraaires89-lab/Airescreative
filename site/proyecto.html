@@ -52,7 +52,7 @@
   @keyframes fade-in{ to{ opacity:1; } }
   @media (prefers-reduced-motion:reduce){ .hero-content .eyebrow, .hero-title, .hero-sub, .hero-ctas, .scroll-cue{ animation:none; opacity:1; transform:none; } }
 
-  nav{ position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; backdrop-filter:blur(14px); background:rgba(11,11,30,0.55); border-bottom:1px solid var(--line); }
+  nav{ position:fixed; top:0; left:0; right:0; z-index:80; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; backdrop-filter:blur(14px); background:rgba(11,11,30,0.55); border-bottom:1px solid var(--line); }
   nav img{ height:32px; }
   nav .navlinks{ display:flex; gap:30px; font-family:'Space Grotesk'; font-size:13.5px; letter-spacing:0.03em; color:var(--mist); }
   nav .navlinks a{ text-decoration:none; transition:color .2s; }
@@ -263,6 +263,10 @@
   /* ============ MOCKUP GALLERY (project detail) ============ */
   .mockup-stack{ display:flex; flex-direction:column; gap:26px; }
   .mockup-full{ border-radius:22px; overflow:hidden; border:1px solid var(--line); }
+  .mockup-hero{ position:relative; z-index:2; margin-top:-340px; }
+  @media (max-width:780px){ .mockup-hero{ margin-top:-110px; } }
+  .proj-dark-lead{ padding-bottom:340px; }
+  @media (max-width:780px){ .proj-dark-lead{ padding-bottom:140px; } }
   .mockup-full img{ width:100%; display:block; }
   .mockup-pair{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
   @media (max-width:720px){ .mockup-pair{ grid-template-columns:1fr !important; } .mockup-pair.offset .mockup-full:last-child{ margin-top:0 !important; } }
@@ -385,7 +389,7 @@
 </header>
 
 <!-- ============ TAGS DE SERVICIOS (fondo claro) ============ -->
-<section style="padding:70px 0 50px;">
+<section class="proj-dark-lead" style="padding-top:70px;">
   <div class="wrap">
     <div class="tag-row reveal">
       <span class="tag-pill">Diseño Web</span>
@@ -401,7 +405,7 @@
 <section class="light" style="padding-top:10px;">
   <div class="wrap">
     <div class="mockup-stack">
-      <div class="mockup-full reveal reveal--media"><img src="../assets/images/wave-01.jpg" alt="Mockup placeholder"></div>
+      <div class="mockup-full mockup-hero reveal reveal--media"><img src="../assets/images/wave-01.jpg" alt="Mockup placeholder"></div>
 
       <div class="proj-editorial reveal">
         <div class="proj-ed-text">
@@ -423,8 +427,6 @@
         </div>
       </div>
       <div class="mc-dots" id="mcDots"></div>
-
-      <div class="mockup-full reveal reveal--media"><img src="../assets/images/fluid-mid.jpg" alt="Mockup placeholder"></div>
 
       <div class="proj-editorial rev reveal">
         <div class="proj-ed-text">
