@@ -298,15 +298,15 @@
   .light .reel-nav-btn svg{ stroke:var(--ink); }
   .reel-nav-btn:hover svg{ stroke:#fff; }
   .reel-phone-wrap{ display:flex; flex-direction:column; align-items:center; gap:18px; }
-  .reel-phone{ width:270px; height:558px; background:#000; border-radius:38px; padding:11px; box-shadow:0 40px 90px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(11,11,30,0.08); position:relative; }
-  .reel-screen{ width:100%; height:100%; border-radius:27px; overflow:hidden; position:relative; background:#111; }
+  .reel-phone{ width:300px; background:#000; border-radius:38px; padding:11px; box-shadow:0 40px 90px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(11,11,30,0.08); position:relative; }
+  .reel-screen{ width:100%; aspect-ratio:9/16; border-radius:27px; overflow:hidden; position:relative; background:#111; }
   .reel-notch{ position:absolute; top:9px; left:50%; transform:translateX(-50%); width:80px; height:18px; background:#000; border-radius:12px; z-index:10; }
   .reel-video{ width:100%; height:100%; object-fit:cover; display:block; background:#111; }
   .reel-dots{ display:flex; gap:7px; flex-wrap:wrap; justify-content:center; max-width:200px; }
   .reel-dots span{ width:7px; height:7px; border-radius:50%; background:var(--line); cursor:pointer; transition:background .18s ease, transform .18s ease; }
   .light .reel-dots span{ background:rgba(11,11,30,0.15); }
   .reel-dots span.active{ background:linear-gradient(135deg,var(--iris),var(--aqua)); transform:scale(1.25); }
-  @media (max-width:600px){ .reel-phone{ width:220px; height:454px; } }
+  @media (max-width:600px){ .reel-phone{ width:230px; } }
   .proj-blurb{ max-width:640px; margin:0 auto 50px; text-align:center; color:var(--mist); font-size:16.5px; font-weight:300; line-height:1.6; }
   .back-link{ text-align:center; margin-top:50px; }
 
@@ -320,6 +320,17 @@
   .proj-ed-text p{ font-size:15px; line-height:1.65; color:#5b5876; }
   .proj-ed-img{ border-radius:20px; overflow:hidden; border:1px solid rgba(11,11,30,0.08); }
   .proj-ed-img img{ width:100%; display:block; }
+
+  /* ============ CATEGORY SPLIT (60% media / 40% text) ============ */
+  .cat-split{ display:grid; grid-template-columns:0.7fr 1fr; gap:50px; align-items:center; margin:46px 0; }
+  .cat-split.rev{ grid-template-columns:1fr 0.7fr; }
+  .cat-split.rev .cat-text{ order:2; }
+  @media (max-width:900px){ .cat-split, .cat-split.rev{ grid-template-columns:1fr; } .cat-split.rev .cat-text{ order:0; } }
+  .cat-text h3{ font-family:'Sora'; font-weight:700; font-size:clamp(19px,2.2vw,24px); margin-bottom:12px; color:var(--paper); }
+  .cat-text p{ font-size:14.5px; line-height:1.65; color:var(--mist); }
+  .light .cat-text h3{ color:var(--ink); }
+  .light .cat-text p{ color:#5b5876; }
+  .cat-media{ min-width:0; }
 
   /* ============ SERVICES — editorial zigzag list (light bg) ============ */
   .svc-list{ display:flex; flex-direction:column; }
@@ -416,13 +427,7 @@
 <!-- ============ TAGS + NAV POR CATEGORÍA ============ -->
 <section class="proj-dark-lead" style="padding-top:70px;">
   <div class="wrap">
-    <div class="tag-row reveal">
-      <span class="tag-pill">Redes Sociales</span>
-      <span class="tag-pill">Packaging</span>
-      <span class="tag-pill">Impresos</span>
-      <span class="tag-pill">Creatividad con IA</span>
-    </div>
-    <p class="proj-blurb reveal" style="margin-top:34px; transition-delay:.1s">Trabajo integral para Sweetest: contenido de redes con reels, diseño de empaques e impresos. Esta página se irá completando con más categorías.</p>
+    <p class="proj-blurb reveal" style="transition-delay:.1s">Un trabajo integral para Sweetest: dirección de arte y producción de contenido para redes sociales, diseño de empaques y piezas impresas, todo desarrollado bajo una misma línea visual coherente con la identidad de la marca.</p>
     <div class="cat-nav reveal" style="transition-delay:.16s">
       <a href="#cat-redes">Redes Sociales</a>
       <a href="#cat-packaging">Packaging</a>
@@ -435,39 +440,54 @@
 <section class="light" id="cat-redes" style="padding-top:80px;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="htxt"><span class="eyebrow">Categoría</span><h2>Redes <span class="grad">Sociales</span></h2></div>
+      <div class="htxt"><h2>Redes <span class="grad">Sociales</span></h2></div>
     </div>
 
-    <div class="reel-stack reveal reveal--media">
-      <button class="reel-nav-btn" id="reelPrev" aria-label="Reel anterior">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <div class="reel-phone-wrap">
-        <div class="reel-phone">
-          <div class="reel-screen">
-            <div class="reel-notch"></div>
-            <video class="reel-video" id="reelVideo" autoplay muted loop playsinline poster="../assets/video/sweetest/reel-poster.jpg"></video>
+    <div class="cat-split">
+      <div class="cat-text reveal reveal--left">
+        <h3>Reels</h3>
+        <p>Piezas audiovisuales cortas pensadas para comunicar en segundos: recetas, datos de producto y momentos de marca, con un ritmo de edición ágil y una estética coherente con la identidad de Sweetest.</p>
+      </div>
+      <div class="cat-media reveal reveal--media">
+        <div class="reel-stack">
+          <button class="reel-nav-btn" id="reelPrev" aria-label="Reel anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="reel-phone-wrap">
+            <div class="reel-phone">
+              <div class="reel-screen">
+                <div class="reel-notch"></div>
+                <video class="reel-video" id="reelVideo" autoplay muted loop playsinline poster="../assets/video/sweetest/reel-poster.jpg"></video>
+              </div>
+            </div>
+            <div class="reel-dots" id="reelDots"></div>
           </div>
+          <button class="reel-nav-btn" id="reelNext" aria-label="Siguiente reel">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
-        <div class="reel-dots" id="reelDots"></div>
       </div>
-      <button class="reel-nav-btn" id="reelNext" aria-label="Siguiente reel">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
     </div>
-    <p class="pgrid-note reveal" style="text-align:center; margin-top:20px;">Arrastra los botones o usa las flechas del teclado para cambiar de reel.</p>
 
-    <div class="mockup-carousel reveal reveal--media" style="margin-top:60px;">
-      <div class="mc-viewport">
-        <div class="mc-track">
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-1.jpg" alt="Sweetest — pieza de redes 1"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-2.jpg" alt="Sweetest — pieza de redes 2"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-3.jpg" alt="Sweetest — pieza de redes 3"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-4.png" alt="Sweetest — pieza de redes 4"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-5.jpg" alt="Sweetest — piezas estáticas"></div>
+    <div class="cat-split rev">
+      <div class="cat-text reveal reveal--right">
+        <h3>Posts</h3>
+        <p>Piezas estáticas y carruseles diseñados para sostener la conversación entre publicación y publicación: contenido educativo, de producto y de comunidad, con una estética reconocible en cada formato.</p>
+      </div>
+      <div class="cat-media reveal reveal--media">
+        <div class="mockup-carousel">
+          <div class="mc-viewport">
+            <div class="mc-track">
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-1.jpg" alt="Sweetest — pieza de redes 1"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-2.jpg" alt="Sweetest — pieza de redes 2"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-3.jpg" alt="Sweetest — pieza de redes 3"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-4.png" alt="Sweetest — pieza de redes 4"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/redes-5.jpg" alt="Sweetest — piezas estáticas"></div>
+            </div>
+          </div>
+          <div class="mc-dots"></div>
         </div>
       </div>
-      <div class="mc-dots"></div>
     </div>
   </div>
 </section>
@@ -476,17 +496,25 @@
 <section id="cat-packaging" style="padding-top:80px;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="htxt"><span class="eyebrow">Categoría</span><h2><span class="grad">Packaging</span></h2></div>
+      <div class="htxt"><h2><span class="grad">Packaging</span></h2></div>
     </div>
-    <div class="mockup-carousel reveal reveal--media">
-      <div class="mc-viewport">
-        <div class="mc-track">
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/packaging-1.jpg" alt="Sweetest — packaging general"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/packaging-2.png" alt="Sweetest — empaque 1"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/packaging-3.png" alt="Sweetest — empaque 2"></div>
+    <div class="cat-split rev">
+      <div class="cat-text reveal reveal--right">
+        <h3>Empaques con carácter propio</h3>
+        <p>Diseño de empaques que traduce la propuesta de valor de Sweetest —sin azúcar, con sabor real— en un lenguaje visual claro, apetecible y fácil de reconocer en el punto de venta.</p>
+      </div>
+      <div class="cat-media reveal reveal--media">
+        <div class="mockup-carousel">
+          <div class="mc-viewport">
+            <div class="mc-track">
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/packaging-1.jpg" alt="Sweetest — packaging general"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/packaging-2.png" alt="Sweetest — empaque 1"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/packaging-3.png" alt="Sweetest — empaque 2"></div>
+            </div>
+          </div>
+          <div class="mc-dots"></div>
         </div>
       </div>
-      <div class="mc-dots"></div>
     </div>
   </div>
 </section>
@@ -495,19 +523,26 @@
 <section class="light" id="cat-impresos" style="padding-top:80px;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="htxt"><span class="eyebrow">Categoría</span><h2><span class="grad">Impresos</span></h2></div>
+      <div class="htxt"><h2><span class="grad">Impresos</span></h2></div>
     </div>
-    <div class="mockup-carousel reveal reveal--media">
-      <div class="mc-viewport">
-        <div class="mc-track">
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/impresos-1.png" alt="Sweetest — danglers"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/impresos-2.jpg" alt="Sweetest — mockup bolsa"></div>
-          <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/impresos-3.jpg" alt="Sweetest — mockup flyers"></div>
+    <div class="cat-split">
+      <div class="cat-text reveal reveal--left">
+        <h3>Presencia en punto de venta</h3>
+        <p>Bolsas, flyers y danglers pensados para reforzar la marca en el punto de venta y en activaciones, manteniendo la consistencia con el resto del sistema visual de Sweetest.</p>
+      </div>
+      <div class="cat-media reveal reveal--media">
+        <div class="mockup-carousel">
+          <div class="mc-viewport">
+            <div class="mc-track">
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/impresos-1.png" alt="Sweetest — danglers"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/impresos-2.jpg" alt="Sweetest — mockup bolsa"></div>
+              <div class="mc-slide"><img loading="lazy" src="../assets/images/sweetest/impresos-3.jpg" alt="Sweetest — mockup flyers"></div>
+            </div>
+          </div>
+          <div class="mc-dots"></div>
         </div>
       </div>
-      <div class="mc-dots"></div>
     </div>
-    <p class="pgrid-note reveal" style="text-align:center; margin-top:40px;">Esta página se irá completando con más categorías a medida que Laura mande el material.</p>
     <div class="back-link"><a class="btn btn-primary reveal" href="trabajo.html">← Ver más proyectos</a></div>
   </div>
 </section>
