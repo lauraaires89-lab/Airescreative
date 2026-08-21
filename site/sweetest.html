@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyectos — Laura Aires</title>
+<title>Sweetest — Laura Aires</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300..800&family=Archivo:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
@@ -263,12 +263,38 @@
   /* ============ MOCKUP GALLERY (project detail) ============ */
   .mockup-stack{ display:flex; flex-direction:column; gap:26px; }
   .mockup-full{ border-radius:22px; overflow:hidden; border:1px solid var(--line); }
+  .mockup-hero{ position:relative; z-index:2; margin-top:-340px; }
+  @media (max-width:780px){ .mockup-hero{ margin-top:-110px; } }
+  .proj-dark-lead{ padding-bottom:340px; }
+  @media (max-width:780px){ .proj-dark-lead{ padding-bottom:140px; } }
   .mockup-full img{ width:100%; display:block; }
   .mockup-pair{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
-  @media (max-width:720px){ .mockup-pair{ grid-template-columns:1fr; } }
+  @media (max-width:720px){ .mockup-pair{ grid-template-columns:1fr !important; } .mockup-pair.offset .mockup-full:last-child{ margin-top:0 !important; } }
   .mockup-pair .mockup-full{ margin:0; }
+  .mockup-pair.offset{ grid-template-columns:1.35fr .65fr; align-items:end; }
+  .mockup-pair.offset .mockup-full:last-child{ margin-top:56px; }
+
+  /* ============ MOCKUP CAROUSEL ============ */
+  .mockup-carousel{ border-radius:22px; overflow:hidden; border:1px solid var(--line); }
+  .mc-viewport{ overflow:hidden; cursor:grab; touch-action:pan-y; }
+  .mc-viewport.dragging{ cursor:grabbing; }
+  .mc-track{ display:flex; }
+  .mc-slide{ flex:0 0 100%; aspect-ratio:16/9; }
+  .mc-slide img{ width:100%; height:100%; object-fit:cover; display:block; -webkit-user-drag:none; user-select:none; pointer-events:none; }
+  .mc-dots{ display:flex; justify-content:center; gap:8px; margin-top:18px; }
   .proj-blurb{ max-width:640px; margin:0 auto 50px; text-align:center; color:var(--mist); font-size:16.5px; font-weight:300; line-height:1.6; }
   .back-link{ text-align:center; margin-top:50px; }
+
+  /* ============ EDITORIAL TEXT+IMAGE BLOCK (project detail) ============ */
+  .proj-editorial{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:center; margin:60px 0; }
+  .proj-editorial.rev{ grid-template-columns:1.2fr 0.8fr; }
+  .proj-editorial.rev .proj-ed-text{ order:2; }
+  @media (max-width:780px){ .proj-editorial, .proj-editorial.rev{ grid-template-columns:1fr; } .proj-editorial.rev .proj-ed-text{ order:0; } }
+  .proj-ed-text .eyebrow{ display:block; margin-bottom:14px; }
+  .proj-ed-text h3{ font-size:clamp(21px,2.4vw,27px); color:var(--ink); margin-bottom:14px; line-height:1.25; }
+  .proj-ed-text p{ font-size:15px; line-height:1.65; color:#5b5876; }
+  .proj-ed-img{ border-radius:20px; overflow:hidden; border:1px solid rgba(11,11,30,0.08); }
+  .proj-ed-img img{ width:100%; display:block; }
 
   /* ============ SERVICES — editorial zigzag list (light bg) ============ */
   .svc-list{ display:flex; flex-direction:column; }
@@ -352,49 +378,68 @@
 </div>
 
 <!-- ============ BANNER ============ -->
-<header class="hero page-banner" id="banner">
-  <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline poster="../assets/video/hero-poster.jpg">
-      <source src="../assets/video/hero-loop.mp4" type="video/mp4">
-    </video>
-    <div class="fluid-vignette"></div>
-    <div class="fluid-fog"></div>
-  </div>
+<header class="hero page-banner" id="banner" style="background:linear-gradient(rgba(11,11,30,.55),rgba(11,11,30,.86)), url('../assets/images/sweetest-banner.jpg') center 42%/cover;">
   <div class="grain"></div>
   <div class="hero-content">
-    <span class="breadcrumb"><a href="index.html">Inicio</a> → Proyectos</span>
-    <h1 class="hero-title">Del reto creativo al <span class="grad">resultado final</span>.</h1>
-    <p class="hero-sub">Una selección de proyectos donde la estrategia, la dirección creativa y el diseño se convierten en identidades, contenidos y experiencias visuales para marcas de distintos sectores.</p>
+    <span class="breadcrumb"><a href="index.html">Inicio</a> → <a href="trabajo.html">Proyectos</a> → Sweetest</span>
+    <span class="eyebrow" style="display:block; margin-bottom:18px;">Branding · Redes Sociales · IA</span>
+    <h1 class="hero-title"><span class="grad">Sweetest</span></h1>
+    <p class="hero-sub">Contenido, empaques e IA para una marca que le dice adiós al azúcar.</p>
   </div>
 </header>
 
-<!-- ============ GALERÍA (fondo claro) ============ -->
-<section class="light" id="proyectos">
+<!-- ============ TAGS DE SERVICIOS (fondo claro) ============ -->
+<section class="proj-dark-lead" style="padding-top:70px;">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="htxt"><span class="eyebrow">Portafolio</span><h2>Todos los <span class="grad">proyectos</span></h2></div>
+    <div class="tag-row reveal">
+      <span class="tag-pill">Branding</span>
+      <span class="tag-pill">Redes Sociales</span>
+      <span class="tag-pill">Creatividad con IA</span>
+      <span class="tag-pill">Packaging</span>
+      <span class="tag-pill">Video</span>
     </div>
-    <div class="pgrid">
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:0s"><div class="pcard-img"><img src="../assets/images/wave-01.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">UX/UI</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="sweetest.html" style="transition-delay:.06s"><div class="pcard-img"><img src="../assets/images/sweetest-banner.jpg" alt="Sweetest" style="object-position:62% 50%"></div><div class="pcard-body"><span class="pcard-tag">Branding</span><h4>Sweetest</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.12s"><div class="pcard-img"><img src="../assets/images/wave-02.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Redes Sociales</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:0s"><div class="pcard-img"><img src="../assets/images/fluid-front.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Audiovisual</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.06s"><div class="pcard-img"><img src="../assets/images/wave-03.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Fotografía</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.12s"><div class="pcard-img"><img src="../assets/images/fluid-back.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Transformación con IA</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:0s"><div class="pcard-img"><img src="../assets/images/wave-01.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">UX/UI</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.06s"><div class="pcard-img"><img src="../assets/images/fluid-mid.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Branding</span><h4>Nombre del proyecto</h4></div></a>
-    </div>
-    <p class="pgrid-note reveal">Estas tarjetas tienen imágenes placeholder — se reemplazan en cuanto Laura entregue el material real de cada proyecto.</p>
+    <p class="proj-blurb reveal" style="margin-top:34px; transition-delay:.1s">Trabajo integral para Sweetest: contenido de redes, empaques, impresos, reels y piezas con IA. Esta página se irá completando con el resto del material.</p>
   </div>
 </section>
 
-<!-- ============ CTA → SERVICIOS ============ -->
-<section class="cta-banner">
+<!-- ============ GALERÍA DE MOCKUPS (fondo claro, dinámica) ============ -->
+<section class="light" style="padding-top:10px;">
   <div class="wrap">
-    <span class="eyebrow reveal" style="display:block; margin-bottom:18px;">¿Qué hay detrás?</span>
-    <h2 class="reveal" style="transition-delay:.08s">Aquí es donde las ideas empiezan a tomar <span class="grad">forma</span>.</h2>
-    <p class="reveal" style="transition-delay:.14s; color:var(--mist); max-width:520px; margin:0 auto 30px; font-size:16px;">Explora los servicios que podemos combinar y adaptar para construir una solución pensada alrededor de tu marca.</p>
-    <a class="btn btn-primary reveal" href="servicios.html" style="transition-delay:.2s">Ver servicios</a>
+    <div class="mockup-stack">
+      <div class="mockup-full mockup-hero reveal reveal--media"><img src="../assets/images/wave-01.jpg" alt="Mockup placeholder"></div>
+
+      <div class="proj-editorial reveal">
+        <div class="proj-ed-text">
+          <span class="eyebrow">El enfoque</span>
+          <h3>Una idea simple, resuelta con cuidado en cada detalle.</h3>
+          <p>Texto placeholder — dos o tres líneas contando el criterio detrás del proyecto, sin extenderse. Lo importante lo dicen las piezas.</p>
+        </div>
+        <div class="proj-ed-img"><img src="../assets/images/fluid-front.jpg" alt="Mockup placeholder"></div>
+      </div>
+
+      <div class="mockup-carousel reveal reveal--media">
+        <div class="mc-viewport" id="mcViewport">
+          <div class="mc-track" id="mcTrack">
+            <div class="mc-slide"><img src="../assets/images/wave-02.jpg" alt="Mockup placeholder"></div>
+            <div class="mc-slide"><img src="../assets/images/fluid-back.jpg" alt="Mockup placeholder"></div>
+            <div class="mc-slide"><img src="../assets/images/fluid-front.jpg" alt="Mockup placeholder"></div>
+            <div class="mc-slide"><img src="../assets/images/wave-03.jpg" alt="Mockup placeholder"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mc-dots" id="mcDots"></div>
+
+      <div class="proj-editorial rev reveal">
+        <div class="proj-ed-text">
+          <span class="eyebrow">El resultado</span>
+          <h3>Piezas listas para distintos formatos y pantallas.</h3>
+          <p>Texto placeholder — un cierre corto sobre el resultado final, sin repetir lo ya dicho arriba.</p>
+        </div>
+        <div class="proj-ed-img"><img src="../assets/images/wave-01.jpg" alt="Mockup placeholder"></div>
+      </div>
+    </div>
+    <p class="pgrid-note reveal" style="text-align:center;">Mockups placeholder — se reemplazan con las piezas reales del proyecto (case study, capturas, artes).</p>
+    <div class="back-link"><a class="btn btn-primary reveal" href="trabajo.html">← Ver más proyectos</a></div>
   </div>
 </section>
 
@@ -434,22 +479,6 @@
   // Safety net: force-reveal everything if something goes wrong (long delay so it never races the real scroll animation)
   setTimeout(() => { revealEls.forEach(el => el.classList.add('in')); }, 8000);
 
-  document.querySelectorAll('.pcard').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const x = e.clientX - r.left, y = e.clientY - r.top;
-      const rx = ((y - r.height/2) / (r.height/2)) * -5;
-      const ry = ((x - r.width/2) / (r.width/2)) * 5;
-      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-    });
-    card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(900px) rotateX(0) rotateY(0)'; });
-  });
-
-  const heroVideo0 = document.querySelector('.hero-video-wrap video');
-  if (heroVideo0) {
-    heroVideo0.playbackRate = 0.6;
-    heroVideo0.addEventListener('loadedmetadata', () => { heroVideo0.playbackRate = 0.6; });
-  }
 
   // Mobile hamburger menu
   const navBurger = document.getElementById('navBurger');
@@ -463,6 +492,63 @@
       navBurger.classList.remove('open');
       navMobile.classList.remove('open');
     }));
+  }
+
+  // Mockup carousel — drag + autoplay + dots (same feel as the Home tools carousel)
+  const mcViewport = document.getElementById('mcViewport');
+  const mcTrack = document.getElementById('mcTrack');
+  const mcDotsWrap = document.getElementById('mcDots');
+  if (mcViewport && mcTrack && mcDotsWrap) {
+    const mcSlides = mcTrack.children;
+    const mcN = mcSlides.length;
+    let mcCurrent = 0;
+    let mcAuto;
+
+    for (let i = 0; i < mcN; i++) {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+      d.addEventListener('click', () => { mcCurrent = i; mcLayout(); mcRestartAuto(); });
+      mcDotsWrap.appendChild(d);
+    }
+    const mcDots = mcDotsWrap.querySelectorAll('.dot');
+
+    function mcLayout() {
+      mcTrack.style.transform = `translateX(-${mcCurrent * 100}%)`;
+      mcDots.forEach((d, i) => d.classList.toggle('active', i === mcCurrent));
+    }
+    function mcRestartAuto() {
+      clearInterval(mcAuto);
+      mcAuto = setInterval(() => { mcCurrent = (mcCurrent + 1) % mcN; mcLayout(); }, 3200);
+    }
+
+    let mcDragStartX = null, mcDragging = false;
+    mcViewport.addEventListener('pointerdown', (e) => {
+      mcDragStartX = e.clientX;
+      mcDragging = true;
+      mcViewport.classList.add('dragging');
+      mcTrack.style.transition = 'none';
+      clearInterval(mcAuto);
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!mcDragging) return;
+      const dx = e.clientX - mcDragStartX;
+      mcTrack.style.transform = `translateX(calc(-${mcCurrent * 100}% + ${dx}px))`;
+    });
+    window.addEventListener('pointerup', (e) => {
+      if (!mcDragging) return;
+      mcDragging = false;
+      mcViewport.classList.remove('dragging');
+      mcTrack.style.transition = '';
+      const dx = e.clientX - mcDragStartX;
+      if (dx > 60) mcCurrent = (mcCurrent - 1 + mcN) % mcN;
+      else if (dx < -60) mcCurrent = (mcCurrent + 1) % mcN;
+      mcLayout();
+      mcRestartAuto();
+    });
+    mcTrack.style.transition = 'transform .6s cubic-bezier(.65,0,.35,1)';
+    mcLayout();
+    mcRestartAuto();
   }
 
   // Cursor glow
