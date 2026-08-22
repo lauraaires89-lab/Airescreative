@@ -275,7 +275,8 @@
   .mockup-carousel{ border-radius:22px; overflow:hidden; border:1px solid var(--line); }
   .mc-viewport{ overflow:hidden; cursor:grab; touch-action:pan-y; }
   .mc-viewport.dragging{ cursor:grabbing; }
-  .mc-track{ display:flex; }
+  .mc-track{ display:flex; transition:transform .6s cubic-bezier(.65,0,.35,1); }
+  .mc-track.no-transition{ transition:none; }
   .mc-slide{ flex:0 0 100%; aspect-ratio:16/9; }
   .mc-slide img{ width:100%; height:100%; object-fit:cover; display:block; -webkit-user-drag:none; user-select:none; pointer-events:none; }
   .mc-dots{ display:flex; justify-content:center; gap:8px; margin-top:26px; }
@@ -660,7 +661,7 @@
       mcDragging = true;
       mcDragMoved = false;
       mcViewport.classList.add('dragging');
-      mcTrack.style.transition = 'none';
+      mcTrack.classList.add('no-transition');
       clearInterval(mcAuto);
     });
     window.addEventListener('pointermove', (e) => {
@@ -673,14 +674,13 @@
       if (!mcDragging) return;
       mcDragging = false;
       mcViewport.classList.remove('dragging');
-      mcTrack.style.transition = '';
+      mcTrack.classList.remove('no-transition');
       const dx = e.clientX - mcDragStartX;
       if (dx > 60) mcCurrent = (mcCurrent - 1 + mcN) % mcN;
       else if (dx < -60) mcCurrent = (mcCurrent + 1) % mcN;
       mcLayout();
       mcRestartAuto();
     });
-    mcTrack.style.transition = 'transform .6s cubic-bezier(.65,0,.35,1)';
     mcLayout();
     mcRestartAuto();
 
