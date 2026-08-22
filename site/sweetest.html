@@ -281,6 +281,16 @@
   .mc-dots{ display:flex; justify-content:center; gap:8px; margin-top:26px; }
   .light .mc-dots .dot{ background:rgba(11,11,30,0.15); }
   .light .mc-dots .dot.active{ background:var(--iris); }
+  .mc-slide, .proj-ed-img{ cursor:zoom-in; }
+
+  /* ============ LIGHTBOX ============ */
+  .lightbox{ position:fixed; inset:0; z-index:200; background:rgba(11,11,30,0.94); display:flex; align-items:center; justify-content:center; padding:60px 24px; opacity:0; pointer-events:none; transition:opacity .3s ease; }
+  .lightbox.open{ opacity:1; pointer-events:auto; }
+  .lightbox img{ max-width:100%; max-height:100%; border-radius:14px; box-shadow:0 50px 110px -20px rgba(0,0,0,0.6); transform:scale(0.96); transition:transform .3s cubic-bezier(.2,.8,.3,1.3); display:block; }
+  .lightbox.open img{ transform:scale(1); }
+  .lightbox-close{ position:fixed; top:24px; right:24px; z-index:201; width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.06); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s, transform .2s; padding:0; }
+  .lightbox-close:hover{ background:rgba(255,255,255,0.18); transform:scale(1.06); }
+  @media (max-width:600px){ .lightbox-close{ top:16px; right:16px; width:42px; height:42px; } }
 
   /* ============ CATEGORY NAV ============ */
   .cat-nav{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:34px; }
@@ -451,7 +461,7 @@
     <div class="cat-split">
       <div class="cat-text reveal reveal--left">
         <h3>Reels</h3>
-        <p>Piezas audiovisuales cortas pensadas para comunicar en segundos: recetas, datos de producto y momentos de marca, con un ritmo de edición ágil y una estética coherente con la identidad de Sweetest. En algunas piezas me apoyé en inteligencia artificial para agilizar la producción, siempre bajo la misma dirección de arte.</p>
+        <p>Piezas audiovisuales cortas pensadas para comunicar en segundos: recetas, datos de producto y momentos de marca, con un ritmo de edición ágil y una estética coherente con la identidad de Sweetest. Parte de esta producción incorpora inteligencia artificial generativa como herramienta dentro del proceso creativo, sin perder la dirección de arte ni el criterio editorial que define al resto del proyecto.</p>
       </div>
       <div class="cat-media reveal reveal--media">
         <div class="reel-stack">
@@ -576,6 +586,13 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
   // Scroll entrance animations
   const revealEls = document.querySelectorAll('.reveal');
@@ -637,10 +654,11 @@
       mcAuto = setInterval(() => { mcCurrent = (mcCurrent + 1) % mcN; mcLayout(); }, 3800);
     }
 
-    let mcDragStartX = null, mcDragging = false;
+    let mcDragStartX = null, mcDragging = false, mcDragMoved = false;
     mcViewport.addEventListener('pointerdown', (e) => {
       mcDragStartX = e.clientX;
       mcDragging = true;
+      mcDragMoved = false;
       mcViewport.classList.add('dragging');
       mcTrack.style.transition = 'none';
       clearInterval(mcAuto);
@@ -648,6 +666,7 @@
     window.addEventListener('pointermove', (e) => {
       if (!mcDragging) return;
       const dx = e.clientX - mcDragStartX;
+      if (Math.abs(dx) > 6) mcDragMoved = true;
       mcTrack.style.transform = `translateX(calc(-${mcCurrent * 100}% + ${dx}px))`;
     });
     window.addEventListener('pointerup', (e) => {
@@ -664,6 +683,15 @@
     mcTrack.style.transition = 'transform .6s cubic-bezier(.65,0,.35,1)';
     mcLayout();
     mcRestartAuto();
+
+    // Click a slide (without having dragged) to open it in the lightbox
+    Array.from(mcSlides).forEach((slide) => {
+      slide.addEventListener('click', () => {
+        if (mcDragMoved) { mcDragMoved = false; return; }
+        const img = slide.querySelector('img');
+        if (img && window.openLightbox) window.openLightbox(img.src, img.alt);
+      });
+    });
   });
 
   // Reel stack — fixed phone mockup, swappable reels (Redes Sociales)
@@ -707,6 +735,31 @@
       if (e.key === 'ArrowRight') reelGoTo(reelCurrent + 1);
     });
     reelRender();
+  }
+
+  // Lightbox — click a mockup image to view it enlarged
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  if (lightbox && lightboxImg && lightboxClose) {
+    window.openLightbox = function (src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+    document.querySelectorAll('.proj-ed-img').forEach((wrap) => {
+      const img = wrap.querySelector('img');
+      if (img) wrap.addEventListener('click', () => window.openLightbox(img.src, img.alt));
+    });
   }
 
   // Cursor glow
