@@ -305,7 +305,13 @@
   .reel-dots span{ width:7px; height:7px; border-radius:50%; background:var(--line); cursor:pointer; transition:background .18s ease, transform .18s ease; }
   .light .reel-dots span{ background:rgba(11,11,30,0.15); }
   .reel-dots span.active{ background:linear-gradient(135deg,var(--iris),var(--aqua)); transform:scale(1.25); }
-  @media (max-width:600px){ .reel-phone{ width:230px; } }
+  @media (max-width:600px){
+    .reel-phone{ width:230px; }
+    .reel-stack{ display:grid; grid-template-areas:"phone phone" "prev next"; grid-template-columns:1fr 1fr; justify-items:center; gap:18px; }
+    .reel-phone-wrap{ grid-area:phone; }
+    #reelPrev{ grid-area:prev; justify-self:end; }
+    #reelNext{ grid-area:next; justify-self:start; }
+  }
   .proj-blurb{ max-width:640px; margin:0 auto 50px; text-align:center; color:var(--mist); font-size:16.5px; font-weight:300; line-height:1.6; }
   .back-link{ text-align:center; margin-top:50px; }
 
