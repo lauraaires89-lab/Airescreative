@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyectos — Laura Aires</title>
+<title>Servicios — Laura Aires</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300..800&family=Archivo:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="../assets/images/favicon-round.svg">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon-round.svg">
 <noscript><style>.reveal{ opacity:1 !important; transform:none !important; }</style></noscript>
 <style>
   :root{
@@ -270,26 +270,26 @@
   .proj-blurb{ max-width:640px; margin:0 auto 50px; text-align:center; color:var(--mist); font-size:16.5px; font-weight:300; line-height:1.6; }
   .back-link{ text-align:center; margin-top:50px; }
 
-  /* ============ SERVICES — editorial zigzag list (light bg) ============ */
-  .svc-list{ display:flex; flex-direction:column; }
-  .svc-row{ display:flex; align-items:center; gap:60px; padding:54px 0; border-bottom:1px solid rgba(11,11,30,0.08); }
-  .svc-row:last-child{ border-bottom:none; }
-  .svc-row:nth-child(even){ flex-direction:row-reverse; }
-  @media (max-width:780px){ .svc-row, .svc-row:nth-child(even){ flex-direction:column; text-align:center; gap:22px; padding:38px 0; } }
-  .svc-icwrap{ flex-shrink:0; width:150px; height:150px; border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative; }
-  .svc-icwrap::before{ content:''; position:absolute; inset:0; border-radius:50%; background:linear-gradient(140deg,var(--iris),var(--sky),var(--aqua)); opacity:0.14; animation:svc-pulse 5s ease-in-out infinite; }
-  .svc-row:nth-child(3n+2) .svc-icwrap::before{ background:linear-gradient(140deg,var(--orchid),var(--iris)); animation-delay:-1.6s; }
-  .svc-row:nth-child(3n) .svc-icwrap::before{ background:linear-gradient(140deg,var(--aqua),var(--sky)); animation-delay:-3.2s; }
-  @keyframes svc-pulse{ 0%,100%{ transform:scale(1); opacity:.14; } 50%{ transform:scale(1.14); opacity:.24; } }
-  .svc-ic{ position:relative; width:76px; height:76px; border-radius:50%; background:linear-gradient(140deg,var(--iris),var(--sky)); display:flex; align-items:center; justify-content:center; animation:svc-float 4.5s ease-in-out infinite; }
-  .svc-row:nth-child(3n+2) .svc-ic{ background:linear-gradient(140deg,var(--orchid),var(--iris)); animation-delay:-1.2s; }
-  .svc-row:nth-child(3n) .svc-ic{ background:linear-gradient(140deg,var(--aqua),var(--sky)); animation-delay:-2.4s; }
-  .svc-ic svg{ width:30px; height:30px; stroke:#fff; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-  @keyframes svc-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-9px); } }
-  .svc-body{ flex:1; min-width:0; }
-  .svc-row h3{ font-size:clamp(22px,2.7vw,30px); margin-bottom:12px; color:var(--ink); }
-  .svc-row p{ font-size:15.5px; line-height:1.65; color:#5b5876; max-width:560px; }
-  @media (max-width:780px){ .svc-row p{ max-width:none; margin:0 auto; } }
+  /* ============ SERVICES — 3+3 grid (light bg) ============ */
+  .svc-grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  @media (max-width:900px){ .svc-grid3{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .svc-grid3{ grid-template-columns:1fr; } }
+  .svc-tile{ background:#fff; border-radius:22px; padding:46px 30px 40px; text-align:center; border:1px solid rgba(11,11,30,0.06); box-shadow:0 1px 2px rgba(11,11,30,.04); transition:transform .4s cubic-bezier(.2,.8,.3,1.3), box-shadow .4s ease; }
+  .svc-tile:hover{ transform:translateY(-8px) rotate(-1deg); box-shadow:0 26px 50px -20px rgba(11,11,30,.2); }
+  .svc-tile:nth-child(even):hover{ transform:translateY(-8px) rotate(1deg); }
+  .svc-icwrap{ margin:0 auto 24px; width:112px; height:112px; display:flex; align-items:center; justify-content:center; position:relative; }
+  .svc-icwrap::before{ content:''; position:absolute; inset:6px; border-radius:42% 58% 70% 30% / 45% 45% 55% 55%; background:linear-gradient(140deg,var(--iris),var(--sky),var(--aqua)); opacity:0.16; animation:svc-pulse 6s ease-in-out infinite, svc-morph 10s ease-in-out infinite; }
+  .svc-tile:nth-child(3n+2) .svc-icwrap::before{ background:linear-gradient(140deg,var(--orchid),var(--iris)); animation-delay:-2s,-3s; }
+  .svc-tile:nth-child(3n) .svc-icwrap::before{ background:linear-gradient(140deg,var(--aqua),var(--sky)); animation-delay:-4s,-6s; }
+  @keyframes svc-pulse{ 0%,100%{ transform:scale(1); opacity:.16; } 50%{ transform:scale(1.1); opacity:.26; } }
+  @keyframes svc-morph{ 0%,100%{ border-radius:42% 58% 70% 30% / 45% 45% 55% 55%; } 34%{ border-radius:58% 42% 35% 65% / 55% 65% 35% 45%; } 67%{ border-radius:35% 65% 60% 40% / 40% 35% 65% 60%; } }
+  .svc-ic{ position:relative; width:68px; height:68px; border-radius:42% 58% 70% 30% / 45% 45% 55% 55%; background:linear-gradient(140deg,var(--iris),var(--sky)); display:flex; align-items:center; justify-content:center; animation:svc-float 4.5s ease-in-out infinite, svc-morph 10s ease-in-out infinite; }
+  .svc-tile:nth-child(3n+2) .svc-ic{ background:linear-gradient(140deg,var(--orchid),var(--iris)); animation-delay:-1.2s,-2s; }
+  .svc-tile:nth-child(3n) .svc-ic{ background:linear-gradient(140deg,var(--aqua),var(--sky)); animation-delay:-2.4s,-4s; }
+  .svc-ic svg{ width:27px; height:27px; stroke:#fff; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  @keyframes svc-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+  .svc-tile h3{ font-size:19px; margin-bottom:12px; color:var(--ink); }
+  .svc-tile p{ font-size:14px; line-height:1.62; color:#5b5876; }
   @media (prefers-reduced-motion:reduce){ .svc-icwrap::before, .svc-ic{ animation:none; } }
 
   /* directional reveal for the zigzag rows */
@@ -300,7 +300,7 @@
   @media (max-width:780px){ .reveal--left, .reveal--right{ transform:translateY(38px); } .reveal--left.in, .reveal--right.in{ transform:translateY(0); } }
 
   /* ============ ADVANTAGES ============ */
-  .adv-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  .adv-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px 44px; }
   @media (max-width:900px){ .adv-grid{ grid-template-columns:repeat(2,1fr); } }
   @media (max-width:520px){ .adv-grid{ grid-template-columns:1fr; } }
   .adv-card{ padding:2px; }
@@ -352,49 +352,69 @@
 </div>
 
 <!-- ============ BANNER ============ -->
-<header class="hero page-banner" id="banner">
-  <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline poster="../assets/video/hero-poster.jpg">
-      <source src="../assets/video/hero-loop.mp4" type="video/mp4">
-    </video>
-    <div class="fluid-vignette"></div>
-    <div class="fluid-fog"></div>
-  </div>
+<header class="hero page-banner" id="banner" style="background:linear-gradient(rgba(11,11,30,.6),rgba(11,11,30,.9)), url('assets/images/fluid-back.jpg') center/cover;">
   <div class="grain"></div>
   <div class="hero-content">
-    <span class="breadcrumb"><a href="index.html">Inicio</a> → Proyectos</span>
-    <h1 class="hero-title">Del reto creativo al <span class="grad">resultado final</span>.</h1>
-    <p class="hero-sub">Una selección de proyectos donde la estrategia, la dirección creativa y el diseño se convierten en identidades, contenidos y experiencias visuales para marcas de distintos sectores.</p>
+    <span class="breadcrumb"><a href="index.html">Inicio</a> → Servicios</span>
+    <h1 class="hero-title">De la idea a una <span class="grad">experiencia bien construida</span>.</h1>
+    <p class="hero-sub">Estrategia, diseño, dirección creativa y tecnología para desarrollar soluciones visuales coherentes, funcionales y alineadas con los objetivos de cada marca.</p>
   </div>
 </header>
 
-<!-- ============ GALERÍA (fondo claro) ============ -->
-<section class="light" id="proyectos">
+<!-- ============ SERVICIOS — grid 3+3 (fondo claro) ============ -->
+<section class="light" id="servicios-lista" style="padding-bottom:70px;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="htxt"><span class="eyebrow">Portafolio</span><h2>Todos los <span class="grad">proyectos</span></h2></div>
+      <div class="htxt"><span class="eyebrow">Servicios</span><h2>Seis disciplinas, un mismo <span class="grad">criterio</span></h2></div>
     </div>
-    <div class="pgrid">
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:0s"><div class="pcard-img"><img src="../assets/images/wave-01.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">UX/UI</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="sweetest.html" style="transition-delay:.06s"><div class="pcard-img"><img src="../assets/images/sweetest-banner.jpg" alt="Sweetest" style="object-position:62% 50%"></div><div class="pcard-body"><span class="pcard-tag">Redes Sociales</span><h4>Sweetest</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.12s"><div class="pcard-img"><img src="../assets/images/wave-02.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Redes Sociales</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:0s"><div class="pcard-img"><img src="../assets/images/fluid-front.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Audiovisual</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.06s"><div class="pcard-img"><img src="../assets/images/wave-03.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Fotografía</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.12s"><div class="pcard-img"><img src="../assets/images/fluid-back.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Transformación con IA</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:0s"><div class="pcard-img"><img src="../assets/images/wave-01.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">UX/UI</span><h4>Nombre del proyecto</h4></div></a>
-      <a class="pcard reveal" href="proyecto.html" style="transition-delay:.06s"><div class="pcard-img"><img src="../assets/images/fluid-mid.jpg" alt=""></div><div class="pcard-body"><span class="pcard-tag">Branding</span><h4>Nombre del proyecto</h4></div></a>
+    <div class="svc-grid3">
+      <div class="svc-tile reveal" style="transition-delay:0s">
+        <div class="svc-icwrap"><div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2.5"/><path d="M8 21h8M12 17v4"/></svg></div></div>
+        <h3>UX/UI</h3>
+        <p>Sitios e interfaces que se sienten tan bien como se ven, del wireframe a la implementación.</p>
+      </div>
+      <div class="svc-tile reveal" style="transition-delay:.06s">
+        <div class="svc-icwrap"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M6 3h12l3 5-9 13L3 8Z"/><path d="M3 8h18M9 3l-2 5 5 13 5-13-2-5"/></svg></div></div>
+        <h3>Branding</h3>
+        <p>Construyo identidades visuales con personalidad, coherencia y propósito, creando sistemas flexibles que ayudan a las marcas a expresarse con claridad y crecer sin perder su esencia.</p>
+      </div>
+      <div class="svc-tile reveal" style="transition-delay:.12s">
+        <div class="svc-icwrap"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M8 12.5a4.5 4.5 0 1 1 1.8 3.6L6 17l.9-2.7A4.47 4.47 0 0 1 8 12.5Z"/><path d="M15.5 6A4.5 4.5 0 0 1 20 10.5c0 .9-.25 1.75-.7 2.5l.7 2.5-2.6-.7a4.5 4.5 0 1 1-1.9-8.8Z"/></svg></div></div>
+        <h3>Redes Sociales</h3>
+        <p>Creo contenidos y sistemas visuales que hacen que una marca sea reconocible, consistente y relevante en redes, sin perder flexibilidad para adaptarse a cada formato.</p>
+      </div>
+      <div class="svc-tile reveal" style="transition-delay:0s">
+        <div class="svc-icwrap"><div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2.5"/><path d="M17 9.5l4-2v9l-4-2"/></svg></div></div>
+        <h3>Audiovisual</h3>
+        <p>Desarrollo piezas audiovisuales para campañas, marcas y contenidos digitales, acompañando cada proyecto desde el concepto y la dirección creativa hasta la producción y edición final.</p>
+      </div>
+      <div class="svc-tile reveal" style="transition-delay:.06s">
+        <div class="svc-icwrap"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1l1.2-1.8A1.5 1.5 0 0 1 10 3.5h4a1.5 1.5 0 0 1 1.3.7L16.5 6h1A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5Z"/><circle cx="12" cy="12.5" r="3.5"/></svg></div></div>
+        <h3>Fotografía</h3>
+        <p>Dirijo y desarrollo propuestas fotográficas alineadas con la identidad de cada marca, cuidando el concepto, la composición, la estética y el retoque final.</p>
+      </div>
+      <div class="svc-tile reveal" style="transition-delay:.12s">
+        <div class="svc-icwrap"><div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7Z"/></svg></div></div>
+        <h3>Creatividad con IA</h3>
+        <p>Integro inteligencia artificial generativa al proceso creativo para explorar nuevas posibilidades, agilizar la producción y ampliar el alcance de cada idea, sin perder la mirada, la intención ni la sensibilidad humana.</p>
+      </div>
     </div>
-    <p class="pgrid-note reveal">Estas tarjetas tienen imágenes placeholder — se reemplazan en cuanto Laura entregue el material real de cada proyecto.</p>
   </div>
 </section>
 
-<!-- ============ CTA → SERVICIOS ============ -->
-<section class="cta-banner">
+<!-- ============ POR QUÉ TRABAJAR CONMIGO ============ -->
+<section id="ventajas">
   <div class="wrap">
-    <span class="eyebrow reveal" style="display:block; margin-bottom:18px;">¿Qué hay detrás?</span>
-    <h2 class="reveal" style="transition-delay:.08s">Aquí es donde las ideas empiezan a tomar <span class="grad">forma</span>.</h2>
-    <p class="reveal" style="transition-delay:.14s; color:var(--mist); max-width:520px; margin:0 auto 30px; font-size:16px;">Explora los servicios que podemos combinar y adaptar para construir una solución pensada alrededor de tu marca.</p>
-    <a class="btn btn-primary reveal" href="servicios.html" style="transition-delay:.2s">Ver servicios</a>
+    <div class="section-head reveal">
+      <div class="htxt"><span class="eyebrow">Por qué trabajar conmigo</span><h2>Creatividad con dirección, de principio a <span class="grad">fin</span>.</h2></div>
+    </div>
+    <p class="reveal" style="margin-top:-30px; margin-bottom:56px; text-align:left; max-width:640px; color:var(--mist); font-size:16.5px; font-weight:300; line-height:1.6;">Una colaboración cercana, estratégica y flexible para convertir tus objetivos en experiencias visuales que conectan, funcionan y evolucionan con tu marca.</p>
+    <div class="adv-grid">
+      <div class="adv-card reveal" style="transition-delay:0s"><div class="adv-num">01</div><h4>De principio a fin</h4><p>Te acompaño desde la primera idea hasta la entrega final. Estrategia, concepto, diseño y producción avanzan bajo una misma dirección, para que cada decisión tenga sentido y el resultado sea sólido, coherente y bien resuelto.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.08s"><div class="adv-num">02</div><h4>Diseño con esencia</h4><p>Creo universos visuales flexibles y consistentes, pensados para que tu marca se vea reconocible, profesional y coherente en cada punto de contacto.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.16s"><div class="adv-num">03</div><h4>IA con mirada humana</h4><p>Integro inteligencia artificial generativa para explorar más posibilidades, agilizar la producción y llevar las ideas más lejos. La tecnología potencia el proceso, pero la dirección, la intención y las decisiones creativas siguen siendo humanas.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.24s"><div class="adv-num">04</div><h4>Experiencia sin fronteras</h4><p>Son más de 16 años trabajando con marcas y empresas de distintos sectores. Puedo integrarme a proyectos locales e internacionales, adaptándome al contexto, la audiencia y los objetivos de cada negocio, sin importar dónde esté.</p></div>
+    </div>
   </div>
 </section>
 
@@ -434,22 +454,6 @@
   // Safety net: force-reveal everything if something goes wrong (long delay so it never races the real scroll animation)
   setTimeout(() => { revealEls.forEach(el => el.classList.add('in')); }, 8000);
 
-  document.querySelectorAll('.pcard').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const x = e.clientX - r.left, y = e.clientY - r.top;
-      const rx = ((y - r.height/2) / (r.height/2)) * -5;
-      const ry = ((x - r.width/2) / (r.width/2)) * 5;
-      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-    });
-    card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(900px) rotateX(0) rotateY(0)'; });
-  });
-
-  const heroVideo0 = document.querySelector('.hero-video-wrap video');
-  if (heroVideo0) {
-    heroVideo0.playbackRate = 0.6;
-    heroVideo0.addEventListener('loadedmetadata', () => { heroVideo0.playbackRate = 0.6; });
-  }
 
   // Mobile hamburger menu
   const navBurger = document.getElementById('navBurger');
