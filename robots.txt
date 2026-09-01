@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /proyecto.html
+
+Sitemap: https://airescreative.com/sitemap.xml
