@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "contenido-nuevo/**",
+      "*.md",
+      "vercel.json",
+      "_redirects"
+    ],
+    "redirects": [
+      { "source": "/", "destination": "/site/index.html", "type": 302 }
+    ]
+  }
+}
