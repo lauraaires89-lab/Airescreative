@@ -75,6 +75,14 @@ Todo el HTML/CSS es vanilla (sin framework) — decisión deliberada por simplic
 
 **Cambio de rumbo:** el plan anterior de 5-6 páginas internas, una por disciplina (`/web-ui`, `/redes-sociales`, etc.), quedó reemplazado por este esquema de Proyectos + Servicios + plantilla de proyecto — más parecido a un portafolio de estudio que a un menú por disciplina. No se construyeron las páginas por disciplina.
 
+## SEO técnico (implementado 2026-09-01)
+
+Base técnica lista en las 5 páginas — no depende de contenido, así que ya está en producción:
+- Title + meta description únicos por página, Open Graph + Twitter Card (para que se vea bien al compartir en redes/WhatsApp), canonical URL a `https://airescreative.com/...`.
+- Datos estructurados (JSON-LD): `Person` en `index.html` (nombre, LinkedIn, disciplinas), `ProfessionalService` con las 6 disciplinas como `Offer` en `servicios.html` — pensado tanto para Google como para que motores de IA (ChatGPT, Perplexity, etc.) entiendan quién es Laura y qué ofrece (GEO/AEO).
+- `sitemap.xml` y `robots.txt` en la raíz — el sitemap solo incluye las 4 páginas con contenido real (`index`, `trabajo`, `servicios`, `sweetest`); `proyecto.html` tiene `noindex,nofollow` porque sigue siendo una plantilla placeholder ("Nombre del proyecto") y no conviene que Google la indexe así.
+- **Pendiente (fase 2, cuando haya más contenido real):** estrategia de keywords/posicionamiento, contenido copy-rico por proyecto para que SEO/GEO tengan algo sustancioso que citar, y registrar el dominio en Google Search Console (mandar el sitemap ahí) — no se ha hecho todavía, conviene esperar a tener 3-4 proyectos reales para no indexar contenido débil.
+
 ## Pendiente / bloqueadores
 
 - **Imágenes/video reales** — para el mosaico de Home, el banner y grid de `trabajo.html`, y los mockups de `proyecto.html`. Todo marcado con nota visible de placeholder.
