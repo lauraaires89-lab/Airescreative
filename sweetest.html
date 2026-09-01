@@ -307,8 +307,8 @@
   .mc-viewport.dragging{ cursor:grabbing; }
   .mc-track{ display:flex; transition:transform .6s cubic-bezier(.65,0,.35,1); }
   .mc-track.no-transition{ transition:none; }
-  .mc-slide{ flex:0 0 100%; aspect-ratio:16/10; }
-  .mc-slide img{ width:100%; height:100%; object-fit:cover; display:block; -webkit-user-drag:none; user-select:none; pointer-events:none; }
+  .mc-slide{ flex:0 0 100%; aspect-ratio:16/9; background:var(--void); }
+  .mc-slide img{ width:100%; height:100%; object-fit:contain; display:block; -webkit-user-drag:none; user-select:none; pointer-events:none; }
   .mc-dots{ display:flex; justify-content:center; gap:8px; margin-top:26px; }
   .light .mc-dots .dot{ background:rgba(11,11,30,0.15); }
   .light .mc-dots .dot.active{ background:var(--iris); }
