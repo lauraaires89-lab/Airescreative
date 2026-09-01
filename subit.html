@@ -294,7 +294,7 @@
   /* ============ MOCKUP GALLERY (project detail) ============ */
   .mockup-stack{ display:flex; flex-direction:column; gap:26px; }
   .mockup-full{ border-radius:22px; overflow:hidden; border:1px solid var(--line); }
-  .proj-dark-lead{ padding-bottom:86px; }
+  .proj-dark-lead{ padding-bottom:40px; }
   .mockup-full img{ width:100%; display:block; }
   .mockup-pair{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
   @media (max-width:720px){ .mockup-pair{ grid-template-columns:1fr !important; } .mockup-pair.offset .mockup-full:last-child{ margin-top:0 !important; } }
@@ -337,10 +337,10 @@
   .browser-dot.r{ background:#ED6A5E; } .browser-dot.y{ background:#F4BF4F; } .browser-dot.g{ background:#61C554; }
   .urlpill{ flex:1; background:rgba(255,255,255,0.06); border-radius:7px; padding:5px 12px; font-size:11px; color:var(--mist); text-align:center; font-family:'Space Grotesk'; }
 
-  .phone-frame{ position:relative; width:29%; min-width:88px; flex-shrink:0; margin-left:-5%; z-index:2; background:#000; border-radius:26px; padding:7px; box-shadow:0 26px 60px -18px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06); }
-  .phone-notch{ position:absolute; top:13px; left:50%; transform:translateX(-50%); width:44px; height:10px; background:#000; border-radius:8px; z-index:3; }
-  .phone-frame .scroll-frame{ aspect-ratio:9/18.5; border-radius:19px; }
-  @media (max-width:480px){ .phone-frame{ width:150px; margin-left:0; margin-top:16px; } }
+  .phone-frame{ position:relative; width:270px; max-width:74vw; margin:0 auto; background:#000; border-radius:34px; padding:10px; box-shadow:0 20px 45px -22px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06); }
+  .phone-notch{ position:absolute; top:16px; left:50%; transform:translateX(-50%); width:66px; height:15px; background:#000; border-radius:10px; z-index:3; }
+  .phone-frame .scroll-frame{ aspect-ratio:9/19.5; border-radius:26px; }
+  .combo-carousel.phone-only .combo-stack{ max-width:480px; margin:0 auto; }
 
   .scroll-frame{ aspect-ratio:3/2; overflow:hidden; position:relative; background:var(--void); border-radius:0 0 14px 14px; }
   .scroll-img{ position:absolute; top:0; left:0; width:100%; height:auto; display:block; will-change:transform; }
@@ -509,12 +509,13 @@
     <p class="proj-blurb reveal" style="transition-delay:.1s">Diseño UX/UI completo para Subit, un marketplace canadiense que conecta a clientes con profesionales de servicios del hogar bajo un modelo de precio fijo y reserva instantánea. Plataforma completa: flujo público de reserva, panel de cliente y panel de profesional, en desktop y mobile.</p>
     <div class="cat-nav reveal" style="transition-delay:.16s">
       <a href="#cat-producto">El Producto</a>
+      <a href="#cat-dashboards">Dashboards</a>
     </div>
   </div>
 </section>
 
 <!-- ============ EL PRODUCTO (pantallas generales, desktop) ============ -->
-<section class="light" id="cat-producto" style="padding-top:80px;">
+<section class="light" id="cat-producto" style="padding-top:44px;">
   <div class="wrap">
     <div class="section-head reveal" style="justify-content:center; text-align:center; margin:0 auto 52px;">
       <div class="htxt"><h2>El <span class="grad">Producto</span></h2></div>
@@ -578,6 +579,87 @@
       </button>
       </div>
       <div class="combo-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DASHBOARDS ============ -->
+<section id="cat-dashboards" style="padding-top:44px;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="htxt"><h2><span class="grad">Dashboards</span></h2></div>
+    </div>
+    <div class="cat-split">
+      <div class="cat-text reveal reveal--left">
+        <h3>Un panel para cada rol</h3>
+        <p>Dos paneles diseñados a medida para cada tipo de usuario. El de cliente centraliza reservas activas, historial y pagos en un solo lugar. El de profesional funciona como su centro de operaciones: crear y publicar servicios, definir disponibilidad y zona de cobertura, gestionar pedidos y mensajes con clientes, y cobrar directamente desde la plataforma.</p>
+      </div>
+      <div class="cat-media reveal reveal--media">
+        <div class="combo-carousel phone-only">
+          <div class="combo-stack">
+          <button class="reel-nav-btn combo-prev" aria-label="Pantalla anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="combo-viewport">
+            <div class="combo-track">
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-1-dashboard.jpg" alt="Subit — Panel de profesional, inicio"></div>
+                </div>
+              </div>
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-2-services.jpg" alt="Subit — Panel de profesional, mis servicios"></div>
+                </div>
+              </div>
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-3-orders.jpg" alt="Subit — Panel de profesional, pedidos"></div>
+                </div>
+              </div>
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-4-messages.jpg" alt="Subit — Panel de profesional, mensajes"></div>
+                </div>
+              </div>
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-5-payments.jpg" alt="Subit — Panel de profesional, pagos"></div>
+                </div>
+              </div>
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-6-certifications.jpg" alt="Subit — Panel de profesional, certificaciones"></div>
+                </div>
+              </div>
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-7-address.jpg" alt="Subit — Panel de profesional, dirección"></div>
+                </div>
+              </div>
+
+              <div class="combo-slide">
+                <div class="phone-frame"><div class="phone-notch"></div>
+                  <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/pro-8-profile.jpg" alt="Subit — Panel de profesional, perfil"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="reel-nav-btn combo-next" aria-label="Siguiente pantalla">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          </div>
+          <div class="combo-dots"></div>
+        </div>
+      </div>
     </div>
 
     <div class="back-link"><a class="btn btn-primary reveal" href="trabajo.html">← Ver más proyectos</a></div>
@@ -784,7 +866,13 @@
         const frameH = frame.clientHeight;
         const renderedH = frame.clientWidth * (img.naturalHeight / img.naturalWidth);
         const dist = Math.max(0, renderedH - frameH);
-        if (dist < 4) return;
+        if (dist < 4) {
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+          return;
+        }
+        img.style.height = 'auto';
+        img.style.objectFit = '';
         const duration = Math.min(14000, Math.max(5000, dist * 7));
         img._scrollAnim = img.animate([
           { transform: 'translateY(0)', offset: 0 },
