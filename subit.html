@@ -316,18 +316,21 @@
   .mc-slide, .proj-ed-img{ cursor:zoom-in; }
 
   /* ============ COMBO CAROUSEL (desktop + mobile, auto-scroll) ============ */
-  .combo-viewport{ overflow:hidden; cursor:grab; touch-action:pan-y; }
+  .combo-stack{ display:flex; align-items:center; gap:16px; }
+  .combo-stack .reel-nav-btn{ flex-shrink:0; }
+  .combo-viewport{ overflow:hidden; cursor:grab; touch-action:pan-y; flex:1 1 auto; min-width:0; }
   .combo-viewport.dragging{ cursor:grabbing; }
   .combo-track{ display:flex; transition:transform .6s cubic-bezier(.65,0,.35,1); }
   .combo-track.no-transition{ transition:none; }
   .combo-slide{ flex:0 0 100%; display:flex; flex-direction:column; align-items:center; padding:20px 30px 0; }
   .combo-row{ display:flex; align-items:flex-end; width:100%; max-width:620px; }
   @media (max-width:480px){ .combo-row{ flex-wrap:wrap; justify-content:center; } }
+  @media (max-width:600px){ .combo-stack{ gap:8px; } .combo-stack .reel-nav-btn{ width:38px; height:38px; } .combo-stack .reel-nav-btn svg{ width:16px; height:16px; } }
   .combo-dots{ display:flex; justify-content:center; gap:8px; margin-top:14px; }
   .light .combo-dots .dot{ background:rgba(11,11,30,0.15); }
   .light .combo-dots .dot.active{ background:var(--iris); }
 
-  .browser-frame{ width:100%; max-width:960px; flex:0 0 auto; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--void); box-shadow:0 30px 70px -30px rgba(0,0,0,0.55); }
+  .browser-frame{ width:100%; max-width:820px; flex:0 0 auto; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--void); box-shadow:0 30px 70px -30px rgba(0,0,0,0.55); }
   .browser-bar{ display:flex; align-items:center; gap:12px; padding:10px 14px; background:#1E1D3A; border-bottom:1px solid var(--line); }
   .browser-dots{ display:flex; gap:6px; flex-shrink:0; }
   .browser-dot{ width:9px; height:9px; border-radius:50%; }
@@ -519,6 +522,10 @@
     <p class="proj-blurb mist-l reveal" style="transition-delay:.06s">Navegación clara por categoría y ubicación, precio y alcance siempre visibles, reserva directa sin pasos innecesarios ni sorpresas al pagar.</p>
 
     <div class="combo-carousel">
+      <div class="combo-stack">
+      <button class="reel-nav-btn combo-prev" aria-label="Pantalla anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
       <div class="combo-viewport">
         <div class="combo-track">
 
@@ -571,6 +578,10 @@
           </div>
 
         </div>
+      </div>
+      <button class="reel-nav-btn combo-next" aria-label="Siguiente pantalla">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
       </div>
       <div class="combo-dots"></div>
     </div>
@@ -745,11 +756,14 @@
     });
   });
 
-  // Combo carousel (desktop + mobile side by side) — drag + autoplay + dots
+  // Combo carousel (desktop screens) — drag + autoplay + dots + arrows
+  // Each slide's scroll-frame only animates while that slide is active, always top-to-bottom, always restarting from the top.
   document.querySelectorAll('.combo-carousel').forEach((carousel) => {
     const ccViewport = carousel.querySelector('.combo-viewport');
     const ccTrack = carousel.querySelector('.combo-track');
     const ccDotsWrap = carousel.querySelector('.combo-dots');
+    const ccPrev = carousel.querySelector('.combo-prev');
+    const ccNext = carousel.querySelector('.combo-next');
     if (!ccViewport || !ccTrack || !ccDotsWrap) return;
 
     const ccSlides = ccTrack.children;
@@ -766,14 +780,45 @@
     }
     const ccDots = ccDotsWrap.querySelectorAll('.dot');
 
+    function playScrollFrame(frame) {
+      const img = frame.querySelector('.scroll-img');
+      if (!img) return;
+      if (img._scrollAnim) img._scrollAnim.cancel();
+      img.style.transform = 'translateY(0)';
+
+      function run() {
+        const frameH = frame.clientHeight;
+        const renderedH = frame.clientWidth * (img.naturalHeight / img.naturalWidth);
+        const dist = Math.max(0, renderedH - frameH);
+        if (dist < 4) return;
+        const duration = Math.min(40000, Math.max(9000, dist * 40));
+        img._scrollAnim = img.animate([
+          { transform: 'translateY(0)', offset: 0 },
+          { transform: 'translateY(0)', offset: 0.08 },
+          { transform: `translateY(-${dist}px)`, offset: 1 }
+        ], { duration, easing: 'ease-in-out', fill: 'forwards' });
+      }
+      if (img.complete && img.naturalWidth) run();
+      else img.addEventListener('load', run, { once: true });
+    }
+
     function ccLayout() {
       ccTrack.style.transform = `translateX(-${ccCurrent * 100}%)`;
       ccDots.forEach((d, i) => d.classList.toggle('active', i === ccCurrent));
+      ccSlides[ccCurrent].querySelectorAll('.scroll-frame').forEach(playScrollFrame);
+    }
+    function ccGoTo(i) {
+      ccCurrent = (i + ccN) % ccN;
+      ccLayout();
+      ccRestartAuto();
     }
     function ccRestartAuto() {
       clearInterval(ccAuto);
-      ccAuto = setInterval(() => { ccCurrent = (ccCurrent + 1) % ccN; ccLayout(); }, 6500);
+      ccAuto = setInterval(() => { ccCurrent = (ccCurrent + 1) % ccN; ccLayout(); }, 8000);
     }
+
+    if (ccPrev) ccPrev.addEventListener('click', () => ccGoTo(ccCurrent - 1));
+    if (ccNext) ccNext.addEventListener('click', () => ccGoTo(ccCurrent + 1));
 
     let ccDragStartX = null, ccDragging = false;
     ccViewport.addEventListener('pointerdown', (e) => {
@@ -801,37 +846,13 @@
     });
     ccLayout();
     ccRestartAuto();
-  });
 
-  // Scroll-frame — auto-scrolls a tall full-page screenshot inside a fixed-height frame so the whole page is visible over time
-  document.querySelectorAll('.scroll-frame').forEach((frame) => {
-    const img = frame.querySelector('.scroll-img');
-    if (!img) return;
-    let anim = null;
-
-    function start() {
-      if (anim) anim.cancel();
-      const frameH = frame.clientHeight;
-      const renderedH = frame.clientWidth * (img.naturalHeight / img.naturalWidth);
-      const dist = Math.max(0, renderedH - frameH);
-      if (dist < 4) return;
-      const duration = Math.min(70000, Math.max(20000, dist * 80));
-      anim = img.animate([
-        { transform: 'translateY(0)', offset: 0 },
-        { transform: 'translateY(0)', offset: 0.14 },
-        { transform: `translateY(-${dist}px)`, offset: 0.5 },
-        { transform: `translateY(-${dist}px)`, offset: 0.86 },
-        { transform: 'translateY(0)', offset: 1 }
-      ], { duration, iterations: Infinity, easing: 'ease-in-out' });
-    }
-
-    if (img.complete && img.naturalWidth) start();
-    else img.addEventListener('load', start, { once: true });
-
-    let resizeTimer;
+    let ccResizeTimer;
     window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(start, 250);
+      clearTimeout(ccResizeTimer);
+      ccResizeTimer = setTimeout(() => {
+        ccSlides[ccCurrent].querySelectorAll('.scroll-frame').forEach(playScrollFrame);
+      }, 250);
     });
   });
 
