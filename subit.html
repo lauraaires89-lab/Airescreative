@@ -327,7 +327,7 @@
   .light .combo-dots .dot{ background:rgba(11,11,30,0.15); }
   .light .combo-dots .dot.active{ background:var(--iris); }
 
-  .browser-frame{ width:74%; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--void); box-shadow:0 30px 70px -30px rgba(0,0,0,0.55); }
+  .browser-frame{ width:100%; max-width:700px; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--void); box-shadow:0 30px 70px -30px rgba(0,0,0,0.55); }
   .browser-bar{ display:flex; align-items:center; gap:12px; padding:10px 14px; background:#1E1D3A; border-bottom:1px solid var(--line); }
   .browser-dots{ display:flex; gap:6px; flex-shrink:0; }
   .browser-dot{ width:9px; height:9px; border-radius:50%; }
@@ -495,110 +495,80 @@
   <div class="grain"></div>
   <div class="hero-content">
     <span class="breadcrumb"><a href="index.html">Inicio</a> → <a href="trabajo.html">Proyectos</a> → Subit</span>
-    <span class="eyebrow" style="display:block; margin-bottom:18px;">Diseño de Plataforma Web · Canadá</span>
+    <span class="eyebrow" style="display:block; margin-bottom:18px;">Diseño de Producto · Plataforma Web · Toronto, Canadá</span>
     <h1 class="hero-title"><span class="grad">Subit</span></h1>
-    <p class="hero-sub">Diseño de la plataforma que conecta a profesionales de servicios del hogar con clientes en Canadá — de plomeros a carpinteros, todo en un solo lugar.</p>
+    <p class="hero-sub">Una plataforma que convierte los servicios del hogar en productos reservables: profesionales verificados, precio fijo desde el inicio y reserva instantánea — sin cotizaciones ni negociación.</p>
   </div>
 </header>
 
 <!-- ============ TAGS + NAV POR CATEGORÍA ============ -->
 <section class="proj-dark-lead" style="padding-top:70px;">
   <div class="wrap">
-    <p class="proj-blurb reveal" style="transition-delay:.1s">Diseño UX/UI completo para Subit: una plataforma que conecta a clientes con profesionales de servicios del hogar en Canadá. El proyecto cubrió el flujo público de descubrimiento y reserva, el panel de cliente y el panel de profesional — todo pensado para desktop y mobile.</p>
+    <p class="proj-blurb reveal" style="transition-delay:.1s">Subit es un marketplace canadiense que conecta a clientes con profesionales de servicios del hogar —instalación de TV, limpieza, jardinería, reparaciones— bajo un modelo de precio fijo y reserva instantánea, sin cotizaciones ni negociación. Diseñé la experiencia completa de la plataforma: el flujo público de descubrimiento y reserva, el panel de cliente y el panel de profesional, en desktop y mobile.</p>
     <div class="cat-nav reveal" style="transition-delay:.16s">
-      <a href="#cat-booking">Descubrimiento y Booking</a>
+      <a href="#cat-producto">El Producto</a>
     </div>
   </div>
 </section>
 
-<!-- ============ DESCUBRIMIENTO Y BOOKING ============ -->
-<section class="light" id="cat-booking" style="padding-top:80px;">
+<!-- ============ EL PRODUCTO (pantallas generales, desktop) ============ -->
+<section class="light" id="cat-producto" style="padding-top:80px;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="htxt"><h2>Descubrimiento <span class="grad">y Booking</span></h2></div>
+      <div class="htxt"><h2>El <span class="grad">Producto</span></h2></div>
     </div>
-    <p class="proj-blurb mist-l reveal" style="transition-delay:.06s">El recorrido del cliente: desde que llega a la home hasta que confirma una reserva — búsqueda de servicio, comparación de profesionales, la interna del servicio y el flujo de booking. Cada pantalla en su versión desktop y mobile, mostradas completas.</p>
+    <p class="proj-blurb mist-l reveal" style="transition-delay:.06s">Cada servicio funciona como un producto: alcance definido, precio fijo visible desde el inicio y reserva instantánea. El cliente explora por categoría y ubicación, elige al profesional, ve exactamente qué incluye el servicio y paga por adelantado — sin cotizaciones, sin negociar, sin sorpresas.</p>
 
     <div class="combo-carousel">
       <div class="combo-viewport">
         <div class="combo-track">
 
           <div class="combo-slide">
-            <div class="combo-row">
-            <div class="browser-frame">
+                        <div class="browser-frame">
               <div class="browser-bar"><div class="browser-dots"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div></div><div class="urlpill">subit.ca</div></div>
               <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/desktop-home.jpg" alt="Subit — Home, versión desktop"></div>
             </div>
-            <div class="phone-frame"><div class="phone-notch"></div>
-              <div class="scroll-frame phone-scroll"><img class="scroll-img" src="assets/images/subit/mobile-home.jpg" alt="Subit — Home, versión mobile"></div>
-            </div>
-            </div>
-            <p class="combo-caption">Home</p>
+                        <p class="combo-caption">Home</p>
           </div>
 
           <div class="combo-slide">
-            <div class="combo-row">
-            <div class="browser-frame">
+                        <div class="browser-frame">
               <div class="browser-bar"><div class="browser-dots"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div></div><div class="urlpill">subit.ca/services</div></div>
               <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/desktop-services.jpg" alt="Subit — Búsqueda de servicio, versión desktop"></div>
             </div>
-            <div class="phone-frame"><div class="phone-notch"></div>
-              <div class="scroll-frame phone-scroll"><img class="scroll-img" src="assets/images/subit/mobile-services.jpg" alt="Subit — Búsqueda de servicio, versión mobile"></div>
-            </div>
-            </div>
-            <p class="combo-caption">Búsqueda de servicio</p>
+                        <p class="combo-caption">Búsqueda de servicio</p>
           </div>
 
           <div class="combo-slide">
-            <div class="combo-row">
-            <div class="browser-frame">
+                        <div class="browser-frame">
               <div class="browser-bar"><div class="browser-dots"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div></div><div class="urlpill">subit.ca/how-it-works</div></div>
               <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/desktop-how-costumers.jpg" alt="Subit — Cómo funciona para clientes, versión desktop"></div>
             </div>
-            <div class="phone-frame"><div class="phone-notch"></div>
-              <div class="scroll-frame phone-scroll"><img class="scroll-img" src="assets/images/subit/mobile-how-costumers.jpg" alt="Subit — Cómo funciona para clientes, versión mobile"></div>
-            </div>
-            </div>
-            <p class="combo-caption">Cómo funciona — clientes</p>
+                        <p class="combo-caption">Cómo funciona — clientes</p>
           </div>
 
           <div class="combo-slide">
-            <div class="combo-row">
-            <div class="browser-frame">
+                        <div class="browser-frame">
               <div class="browser-bar"><div class="browser-dots"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div></div><div class="urlpill">subit.ca/how-it-works-pro</div></div>
               <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/desktop-how-pro.jpg" alt="Subit — Cómo funciona para profesionales, versión desktop"></div>
             </div>
-            <div class="phone-frame"><div class="phone-notch"></div>
-              <div class="scroll-frame phone-scroll"><img class="scroll-img" src="assets/images/subit/mobile-how-pro.jpg" alt="Subit — Cómo funciona para profesionales, versión mobile"></div>
-            </div>
-            </div>
-            <p class="combo-caption">Cómo funciona — profesionales</p>
+                        <p class="combo-caption">Cómo funciona — profesionales</p>
           </div>
 
           <div class="combo-slide">
-            <div class="combo-row">
-            <div class="browser-frame">
+                        <div class="browser-frame">
               <div class="browser-bar"><div class="browser-dots"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div></div><div class="urlpill">subit.ca/product</div></div>
               <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/desktop-product.jpg" alt="Subit — Interna del servicio, versión desktop"></div>
             </div>
-            <div class="phone-frame"><div class="phone-notch"></div>
-              <div class="scroll-frame phone-scroll"><img class="scroll-img" src="assets/images/subit/mobile-product.jpg" alt="Subit — Interna del servicio, versión mobile"></div>
-            </div>
-            </div>
-            <p class="combo-caption">Interna del servicio</p>
+                        <p class="combo-caption">Interna del servicio</p>
           </div>
 
           <div class="combo-slide">
-            <div class="combo-row">
-            <div class="browser-frame">
+                        <div class="browser-frame">
               <div class="browser-bar"><div class="browser-dots"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div></div><div class="urlpill">subit.ca/cart</div></div>
               <div class="scroll-frame"><img class="scroll-img" src="assets/images/subit/desktop-cart.jpg" alt="Subit — Booking / carrito, versión desktop"></div>
             </div>
-            <div class="phone-frame"><div class="phone-notch"></div>
-              <div class="scroll-frame phone-scroll"><img class="scroll-img" src="assets/images/subit/mobile-cart.jpg" alt="Subit — Booking / carrito, versión mobile"></div>
-            </div>
-            </div>
-            <p class="combo-caption">Booking</p>
+                        <p class="combo-caption">Booking</p>
           </div>
 
         </div>
@@ -846,12 +816,12 @@
       const renderedH = frame.clientWidth * (img.naturalHeight / img.naturalWidth);
       const dist = Math.max(0, renderedH - frameH);
       if (dist < 4) return;
-      const duration = Math.min(22000, Math.max(6000, dist * 9));
+      const duration = Math.min(70000, Math.max(20000, dist * 80));
       anim = img.animate([
         { transform: 'translateY(0)', offset: 0 },
-        { transform: 'translateY(0)', offset: 0.08 },
+        { transform: 'translateY(0)', offset: 0.14 },
         { transform: `translateY(-${dist}px)`, offset: 0.5 },
-        { transform: `translateY(-${dist}px)`, offset: 0.92 },
+        { transform: `translateY(-${dist}px)`, offset: 0.86 },
         { transform: 'translateY(0)', offset: 1 }
       ], { duration, iterations: Infinity, easing: 'ease-in-out' });
     }
