@@ -353,11 +353,12 @@
   .video-frame video{ width:100%; display:block; aspect-ratio:16/9; background:#000; }
 
   /* ============ CIERRE ============ */
-  .closing-grid{ display:grid; grid-template-columns:1.2fr 0.8fr; gap:60px; align-items:center; margin-bottom:56px; }
+  .closing-grid{ display:grid; grid-template-columns:1.5fr 0.7fr; gap:50px; align-items:center; margin-bottom:56px; }
   @media (max-width:900px){ .closing-grid{ grid-template-columns:1fr; gap:36px; } }
   .closing-media img{ width:100%; display:block; }
   .closing-text h2{ font-size:clamp(28px,4vw,42px); margin-bottom:20px; }
   .closing-text p{ color:var(--mist); font-size:16.5px; line-height:1.65; max-width:480px; }
+  .light .closing-text p{ color:#6b6884; }
 
   /* ============ LIGHTBOX ============ */
   .lightbox{ position:fixed; inset:0; z-index:200; background:rgba(11,11,30,0.94); display:flex; align-items:center; justify-content:center; padding:60px 24px; opacity:0; pointer-events:none; transition:opacity .3s ease; }
@@ -597,7 +598,7 @@
 </section>
 
 <!-- ============ DASHBOARDS ============ -->
-<section id="cat-dashboards" style="padding-top:96px; padding-bottom:50px;">
+<section id="cat-dashboards" style="padding-top:140px; padding-bottom:30px;">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="htxt"><h2><span class="grad">Paneles</span></h2></div>
@@ -678,7 +679,7 @@
 </section>
 
 <!-- ============ CIERRE ============ -->
-<section id="cat-cierre">
+<section class="light" id="cat-cierre">
   <div class="wrap">
     <div class="closing-grid">
       <div class="closing-media reveal reveal--media">
