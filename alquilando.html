@@ -398,6 +398,7 @@
   .reel-screen{ width:100%; aspect-ratio:9/16; border-radius:27px; overflow:hidden; position:relative; background:#111; }
   .reel-notch{ position:absolute; top:9px; left:50%; transform:translateX(-50%); width:80px; height:18px; background:#000; border-radius:12px; z-index:10; }
   .reel-video{ width:100%; height:100%; object-fit:cover; display:block; background:#111; }
+  .reel-video.fit-contain{ object-fit:contain; background:#0b0b1e; }
   .reel-dots{ display:flex; gap:7px; flex-wrap:wrap; justify-content:center; max-width:200px; }
   .reel-dots span{ width:7px; height:7px; border-radius:50%; background:var(--line); cursor:pointer; transition:background .18s ease, transform .18s ease; }
   .light .reel-dots span{ background:rgba(11,11,30,0.15); }
@@ -524,7 +525,6 @@
     <h1 class="hero-title"><span class="grad">Alquilando</span></h1>
     <div class="hero-meta">
       <span class="country-pill"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>Colombia</span>
-      <span class="agency-pill">Vía Backbone Latam</span>
     </div>
   </div>
 </header>
@@ -532,7 +532,7 @@
 <!-- ============ TAGS + NAV POR CATEGORÍA ============ -->
 <section class="proj-dark-lead" style="padding-top:70px;">
   <div class="wrap">
-    <p class="proj-blurb reveal" style="transition-delay:.1s">Acompañamiento de marca 360° para Alquilando, una proptech colombiana que digitaliza la gestión de arriendos —desde el pago del canon hasta la búsqueda de propiedades. Redes sociales, email marketing, impresos para eventos y una producción audiovisual constante, bajo una misma identidad de principio a fin.</p>
+    <p class="proj-blurb reveal" style="transition-delay:.1s">Acompañamiento de marca 360° para Alquilando, una proptech colombiana que digitaliza la gestión de arriendos, desarrollado en conjunto con la agencia Backbone Latam. Redes sociales, email marketing, impresos para eventos y una producción audiovisual constante, bajo una misma identidad de principio a fin.</p>
     <div class="cat-nav reveal" style="transition-delay:.16s">
       <a href="#cat-corporativo">Identidad Corporativa</a>
       <a href="#cat-redes">Redes Sociales</a>
@@ -607,26 +607,33 @@
 <!-- ============ PÁGINA WEB ============ -->
 <section class="light" id="cat-reels" style="padding-top:80px;">
   <div class="wrap">
-    <div class="section-head reveal" style="justify-content:center; text-align:center; margin:0 auto 40px;">
+    <div class="section-head reveal">
       <div class="htxt"><h2>Reels</h2></div>
     </div>
-    <p class="proj-blurb mist-l reveal" style="transition-delay:.06s; margin-bottom:40px;">Piezas de formato corto para redes: gestión de arriendos, propietarios y contenido educativo sobre el mercado inmobiliario, con un ritmo de edición pensado para retener la atención desde el primer segundo.</p>
-    <div class="reel-stack">
-      <button class="reel-nav-btn" id="reelPrev" aria-label="Reel anterior">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <div class="reel-phone-wrap">
-        <div class="reel-phone">
-          <div class="reel-screen">
-            <div class="reel-notch"></div>
-            <video class="reel-video" id="reelVideo" autoplay muted loop playsinline poster="assets/video/alquilando/reel-poster.jpg"></video>
-          </div>
-        </div>
-        <div class="reel-dots" id="reelDots"></div>
+    <div class="cat-split" style="grid-template-columns:1fr 1fr; align-items:center;">
+      <div class="cat-text reveal reveal--left">
+        <h3>Formato corto, ritmo pensado para retener</h3>
+        <p>Piezas para redes sociales sobre gestión de arriendos, propietarios y contenido educativo del mercado inmobiliario, editadas con un ritmo que sostiene la atención desde el primer segundo.</p>
       </div>
-      <button class="reel-nav-btn" id="reelNext" aria-label="Siguiente reel">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+      <div class="cat-media reveal reveal--media">
+        <div class="reel-stack">
+          <button class="reel-nav-btn" id="reelPrev" aria-label="Reel anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="reel-phone-wrap">
+            <div class="reel-phone">
+              <div class="reel-screen">
+                <div class="reel-notch"></div>
+                <video class="reel-video" id="reelVideo" autoplay muted loop playsinline poster="assets/video/alquilando/reel-poster.jpg"></video>
+              </div>
+            </div>
+            <div class="reel-dots" id="reelDots"></div>
+          </div>
+          <button class="reel-nav-btn" id="reelNext" aria-label="Siguiente reel">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -635,7 +642,7 @@
 <section id="cat-video" style="padding-top:70px; padding-bottom:70px;">
   <div class="wrap">
     <div class="section-head reveal" style="justify-content:center; text-align:center; margin:0 auto 40px;">
-      <div class="htxt"><h2>Video <span class="grad">Institucional</span></h2></div>
+      <div class="htxt"><h2>Producción <span class="grad">Audiovisual</span></h2></div>
     </div>
     <p class="proj-blurb mist-l reveal" style="transition-delay:.06s; margin-bottom:40px;">Pieza audiovisual producida para presentar la alianza entre Alquilando, brokers e inmobiliarias — la propuesta de valor de la plataforma en formato largo.</p>
     <div class="video-frame reveal reveal--media">
@@ -943,6 +950,7 @@
 
     function reelRender() {
       reelVideo.src = reels[reelCurrent];
+      reelVideo.classList.toggle('fit-contain', reels[reelCurrent].includes('propietarios2'));
       reelVideo.load();
       reelVideo.play().catch(() => {});
       [...reelDots].forEach((d, i) => d.classList.toggle('active', i === reelCurrent));
