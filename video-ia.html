@@ -455,6 +455,13 @@
 
   .fade-edge{ position:absolute; top:0; right:0; bottom:4px; width:64px; background:linear-gradient(90deg,transparent,var(--ink)); pointer-events:none; }
 
+  .strip-nav{ position:absolute; top:50%; transform:translateY(-50%); width:34px; height:34px; border-radius:50%; background:rgba(11,11,30,0.4); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:3; opacity:0.55; transition:opacity .2s ease, background .2s ease; padding:0; }
+  .strip-nav:hover{ opacity:1; background:rgba(11,11,30,0.6); }
+  .strip-nav svg{ width:14px; height:14px; stroke:var(--paper); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .strip-nav.prev{ left:10px; }
+  .strip-nav.next{ right:10px; }
+  @media (max-width:640px){ .strip-nav{ display:none; } }
+
   @media (max-width:640px){ .filmstrip{ height:340px; } .filmstrip.short{ height:260px; } }
 
   /* ============ SERVICES — editorial zigzag list (light bg) ============ */
@@ -571,6 +578,8 @@
       <div class="cat-media reveal reveal--media">
         <div class="format-group">
           <div class="filmstrip-wrap">
+            <button class="strip-nav prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="strip-nav next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
             <div class="filmstrip">
               <div class="piece crop">
                 <video preload="none" poster="assets/video/video-ia/verticales/v1-poster.jpg">
@@ -674,6 +683,8 @@
       <div class="cat-media reveal reveal--media">
         <div class="format-group">
           <div class="filmstrip-wrap">
+            <button class="strip-nav prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="strip-nav next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
             <div class="filmstrip short">
               <div class="piece">
                 <video preload="none" poster="assets/video/video-ia/horizontales/h1-poster.jpg">
@@ -1133,6 +1144,24 @@
       }
     });
   }
+
+  // Filmstrip nav arrows — snap to the next/previous piece instead of fighting scroll-snap
+  document.querySelectorAll('.filmstrip-wrap').forEach((wrap) => {
+    const strip = wrap.querySelector('.filmstrip');
+    const prev = wrap.querySelector('.strip-nav.prev');
+    const next = wrap.querySelector('.strip-nav.next');
+    if (!strip) return;
+    const pieces = [...strip.querySelectorAll('.piece')];
+    function goTo(dir) {
+      const current = strip.scrollLeft;
+      let idx = pieces.findIndex((p) => p.offsetLeft >= current - 4);
+      if (idx === -1) idx = pieces.length - 1;
+      idx = Math.max(0, Math.min(pieces.length - 1, idx + dir));
+      strip.scrollTo({ left: pieces[idx].offsetLeft, behavior: 'smooth' });
+    }
+    if (prev) prev.addEventListener('click', () => goTo(-1));
+    if (next) next.addEventListener('click', () => goTo(1));
+  });
 </script>
 
 </body>
