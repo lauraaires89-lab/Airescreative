@@ -374,6 +374,8 @@
   .lightbox.open{ opacity:1; pointer-events:auto; }
   .lightbox img{ max-width:100%; max-height:100%; border-radius:14px; box-shadow:0 50px 110px -20px rgba(0,0,0,0.6); transform:scale(0.96); transition:transform .3s cubic-bezier(.2,.8,.3,1.3); display:block; }
   .lightbox.open img{ transform:scale(1); }
+  .lightbox video{ max-width:100%; max-height:100%; border-radius:14px; box-shadow:0 50px 110px -20px rgba(0,0,0,0.6); transform:scale(0.96); transition:transform .3s cubic-bezier(.2,.8,.3,1.3); display:block; background:#000; }
+  .lightbox.open video{ transform:scale(1); }
   .lightbox-close{ position:fixed; top:24px; right:24px; z-index:201; width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.06); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s, transform .2s; padding:0; }
   .lightbox-close:hover{ background:rgba(255,255,255,0.18); transform:scale(1.06); }
   @media (max-width:600px){ .lightbox-close{ top:16px; right:16px; width:42px; height:42px; } }
@@ -438,19 +440,24 @@
 
   .filmstrip-wrap{ position:relative; }
   .filmstrip{ display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; height:420px; scrollbar-width:thin; scrollbar-color:var(--line) transparent; padding-bottom:4px; }
-  .filmstrip.short{ height:560px; }
+  .filmstrip.short{ height:400px; }
   .filmstrip::-webkit-scrollbar{ height:6px; }
   .filmstrip::-webkit-scrollbar-thumb{ background:var(--line); border-radius:100px; }
   .filmstrip::-webkit-scrollbar-track{ background:transparent; }
 
-  .filmstrip .piece{ position:relative; flex:0 0 auto; height:100%; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#000; scroll-snap-align:start; transition:transform .3s cubic-bezier(.2,.8,.3,1.1), border-color .3s; }
+  .filmstrip .piece{ position:relative; flex:0 0 auto; height:100%; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#000; scroll-snap-align:start; cursor:pointer; transition:transform .3s cubic-bezier(.2,.8,.3,1.1), border-color .3s; }
   .filmstrip .piece:hover{ transform:translateY(-4px); border-color:var(--aqua); }
-  .filmstrip .piece video{ height:100%; width:auto; display:block; object-fit:contain; background:#000; }
+  .filmstrip .piece video{ height:100%; width:auto; display:block; object-fit:contain; background:#000; pointer-events:none; }
+  .filmstrip .piece.crop video{ object-fit:cover; }
   .filmstrip .piece .dur{ position:absolute; top:10px; left:10px; z-index:2; font-family:'Space Grotesk'; font-size:11px; letter-spacing:0.04em; color:var(--paper); background:rgba(11,11,30,0.55); border-radius:100px; padding:4px 10px; pointer-events:none; }
+
+  .filmstrip .piece .play-btn{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,0.14); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,0.35); display:flex; align-items:center; justify-content:center; pointer-events:none; transition:transform .25s ease, background .25s ease; z-index:2; }
+  .filmstrip .piece .play-btn svg{ width:18px; height:18px; stroke:var(--paper); fill:var(--paper); margin-left:2px; }
+  .filmstrip .piece:hover .play-btn{ transform:translate(-50%,-50%) scale(1.1); background:rgba(255,255,255,0.26); }
 
   .fade-edge{ position:absolute; top:0; right:0; bottom:4px; width:64px; background:linear-gradient(90deg,transparent,var(--ink)); pointer-events:none; }
 
-  @media (max-width:640px){ .filmstrip{ height:340px; } .filmstrip.short{ height:280px; } }
+  @media (max-width:640px){ .filmstrip{ height:340px; } .filmstrip.short{ height:260px; } }
 
   /* ============ SERVICES — editorial zigzag list (light bg) ============ */
   .svc-list{ display:flex; flex-direction:column; }
@@ -569,81 +576,94 @@
           <div class="filmstrip-wrap">
             <div class="filmstrip">
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v1-poster.jpg">
-                  <source src="assets/video/video-ia/verticales/v1.mp4" type="video/mp4">
-                </video>
-                <span class="dur">0:20</span>
-              </div>
-              <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v2-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v2-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v2.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:26</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v3-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v3-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v3.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:25</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v4-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v4-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v4.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:29</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v5-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v5-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v5.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:35</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v6-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v6-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v6.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:38</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v7-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v7-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v7.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:42</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v8-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v8-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v8.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:42</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v9-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v9-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v9.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:33</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v10-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v10-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v10.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:09</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v11-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v11-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v11.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:43</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v12-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/verticales/v12-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v12.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:40</span>
               </div>
-              <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/verticales/v13-poster.jpg">
+              <div class="piece crop">
+                <video preload="none" poster="assets/video/video-ia/verticales/v1-poster.jpg">
+                  <source src="assets/video/video-ia/verticales/v1.mp4" type="video/mp4">
+                </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                <span class="dur">0:20</span>
+              </div>
+              <div class="piece crop">
+                <video preload="none" poster="assets/video/video-ia/verticales/v13-poster.jpg">
                   <source src="assets/video/video-ia/verticales/v13.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:24</span>
               </div>
             </div>
@@ -655,21 +675,24 @@
           <div class="filmstrip-wrap">
             <div class="filmstrip short">
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/horizontales/h1-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/horizontales/h1-poster.jpg">
                   <source src="assets/video/video-ia/horizontales/h1.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:36</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/horizontales/h2-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/horizontales/h2-poster.jpg">
                   <source src="assets/video/video-ia/horizontales/h2.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:29</span>
               </div>
               <div class="piece">
-                <video preload="none" controls poster="assets/video/video-ia/horizontales/h3-poster.jpg">
+                <video preload="none" poster="assets/video/video-ia/horizontales/h3-poster.jpg">
                   <source src="assets/video/video-ia/horizontales/h3.mp4" type="video/mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                 <span class="dur">0:11</span>
               </div>
             </div>
@@ -746,6 +769,13 @@
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
   </button>
   <img id="lightboxImg" src="" alt="">
+</div>
+
+<div class="lightbox" id="videoLightbox">
+  <button class="lightbox-close" id="videoLightboxClose" aria-label="Cerrar">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <video id="lightboxVideo" controls playsinline></video>
 </div>
 
 <script>
@@ -1069,14 +1099,35 @@
     })();
   }
 
-  // Filmstrip videos — only one plays at a time
-  document.querySelectorAll('.filmstrip video').forEach((v) => {
-    v.addEventListener('play', () => {
-      document.querySelectorAll('.filmstrip video').forEach((other) => {
-        if (other !== v && !other.paused) other.pause();
-      });
+  // Filmstrip videos — click a piece to watch it enlarged in the lightbox
+  const videoLightbox = document.getElementById('videoLightbox');
+  const lightboxVideo = document.getElementById('lightboxVideo');
+  const videoLightboxClose = document.getElementById('videoLightboxClose');
+  if (videoLightbox && lightboxVideo && videoLightboxClose) {
+    function openVideoLightbox(src, poster) {
+      lightboxVideo.src = src;
+      lightboxVideo.poster = poster || '';
+      videoLightbox.classList.add('open');
+      lightboxVideo.play().catch(() => {});
+    }
+    function closeVideoLightbox() {
+      videoLightbox.classList.remove('open');
+      lightboxVideo.pause();
+      lightboxVideo.removeAttribute('src');
+      lightboxVideo.load();
+    }
+    videoLightboxClose.addEventListener('click', closeVideoLightbox);
+    videoLightbox.addEventListener('click', (e) => { if (e.target === videoLightbox) closeVideoLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoLightbox(); });
+
+    document.querySelectorAll('.filmstrip .piece').forEach((piece) => {
+      const vid = piece.querySelector('video');
+      const source = piece.querySelector('source');
+      if (vid && source) {
+        piece.addEventListener('click', () => openVideoLightbox(source.src, vid.poster));
+      }
     });
-  });
+  }
 </script>
 
 </body>
