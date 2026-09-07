@@ -532,7 +532,7 @@
 <!-- ============ TAGS + NAV POR CATEGORÍA ============ -->
 <section class="proj-dark-lead" style="padding-top:70px;">
   <div class="wrap">
-    <p class="proj-blurb reveal" style="transition-delay:.1s">Acompañamiento digital para Marcali, vitrina multimarca de vehículos en Colombia. Redes sociales orgánicas y de pauta, reels e impresos puntuales para Renault, Fiat · Jeep · Ram y Peugeot, con un fuerte componente de imágenes generadas con inteligencia artificial ante la ausencia de un banco fotográfico propio.</p>
+    <p class="proj-blurb reveal" style="transition-delay:.1s">Acompañamiento digital para Marcali, vitrina multimarca de vehículos en Colombia, desarrollado en conjunto con la agencia Backbone Latam. Redes sociales orgánicas y de pauta, reels e impresos puntuales para Renault, Fiat · Jeep · Ram y Peugeot, con un fuerte componente de imágenes generadas con inteligencia artificial ante la ausencia de un banco fotográfico propio.</p>
     <div class="cat-nav reveal" style="transition-delay:.16s">
       <a href="#cat-redes">Redes Sociales</a>
       <a href="#cat-reels">Reels</a>
@@ -547,6 +547,7 @@
     <div class="section-head reveal">
       <div class="htxt"><h2>Redes <span class="grad">Sociales</span></h2></div>
     </div>
+    <p class="proj-blurb mist-l reveal" style="transition-delay:.06s; margin-bottom:50px;">Cada marca dentro del portafolio de Marcali mantiene sus propios lineamientos y personalidad, heredados de su marca madre. El trabajo consistió en interpretar esos lineamientos y adaptarlos a propuestas creativas puntuales, sin perder la identidad de origen de cada una.</p>
 
     <div class="cat-split">
       <div class="cat-text reveal reveal--left">
@@ -597,6 +598,7 @@
           <div class="mc-viewport">
             <div class="mc-track">
               <div class="mc-slide"><img src="assets/images/marcali/peugeot-post.webp" alt="Marcali Peugeot — posts de producto"></div>
+              <div class="mc-slide"><img src="assets/images/marcali/peugeot-carrusel.webp" alt="Marcali Peugeot — carrusel"></div>
               <div class="mc-slide"><img src="assets/images/marcali/peugeot-historias.webp" alt="Marcali Peugeot — historias"></div>
             </div>
           </div>
@@ -628,7 +630,7 @@
             <div class="reel-phone">
               <div class="reel-screen">
                 <div class="reel-notch"></div>
-                <video class="reel-video" id="reelVideo" autoplay muted loop playsinline poster="assets/video/marcali/reel-1-entrega-jeep-poster.jpg"></video>
+                <video class="reel-video" id="reelVideo" controls loop playsinline poster="assets/video/marcali/reel-1-poster.jpg"></video>
               </div>
             </div>
             <div class="reel-dots" id="reelDots"></div>
@@ -645,20 +647,27 @@
 <!-- ============ IMPRESOS ============ -->
 <section class="light" id="cat-impresos" style="padding-top:70px; padding-bottom:70px;">
   <div class="wrap">
-    <div class="section-head reveal" style="justify-content:center; text-align:center; margin:0 auto 40px;">
+    <div class="section-head reveal">
       <div class="htxt"><h2>Impresos</h2></div>
     </div>
-    <p class="proj-blurb mist-l reveal" style="transition-delay:.06s; margin-bottom:40px;">Piezas puntuales para punto de venta y papelería corporativa — totems, material de apoyo comercial y tarjetas de presentación, bajo la misma identidad de marca.</p>
-    <div class="mockup-carousel reveal reveal--media" style="max-width:640px; margin:0 auto;">
-      <div class="mc-viewport">
-        <div class="mc-track">
-          <div class="mc-slide"><img src="assets/images/marcali/impresos-1.webp" alt="Marcali — totems para punto de venta"></div>
-          <div class="mc-slide"><img src="assets/images/marcali/impresos-2.webp" alt="Marcali — material corporativo"></div>
-          <div class="mc-slide"><img src="assets/images/marcali/impresos-3.webp" alt="Marcali — tarjetas de presentación"></div>
+    <div class="cat-split rev">
+      <div class="cat-media reveal reveal--media">
+        <div class="mockup-carousel">
+          <div class="mc-viewport">
+            <div class="mc-track">
+              <div class="mc-slide"><img src="assets/images/marcali/impresos-1.webp" alt="Marcali — totems para punto de venta"></div>
+              <div class="mc-slide"><img src="assets/images/marcali/impresos-2.webp" alt="Marcali — material corporativo"></div>
+              <div class="mc-slide"><img src="assets/images/marcali/impresos-3.webp" alt="Marcali — tarjetas de presentación"></div>
+            </div>
+          </div>
         </div>
+        <div class="mc-dots"></div>
+      </div>
+      <div class="cat-text reveal reveal--right">
+        <h3>Presencia física, con la misma identidad</h3>
+        <p>Piezas puntuales para punto de venta y papelería corporativa — totems, material de apoyo comercial y tarjetas de presentación, bajo la misma identidad de marca.</p>
       </div>
     </div>
-    <div class="mc-dots" style="margin-top:16px;"></div>
     <div class="back-link"><a class="btn btn-primary reveal" href="trabajo.html">← Ver más proyectos</a></div>
   </div>
 </section>
@@ -939,10 +948,10 @@
   const reelVideo = document.getElementById('reelVideo');
   if (reelVideo) {
     const reels = [
-      'assets/video/marcali/reel-1-entrega-jeep.mp4',
-      'assets/video/marcali/reel-2-reto-fiat.mp4',
-      'assets/video/marcali/reel-3-prime.mp4',
-      'assets/video/marcali/reel-4-todos-a-bordo.mp4',
+      'assets/video/marcali/reel-1.mp4',
+      'assets/video/marcali/reel-2.mp4',
+      'assets/video/marcali/reel-3.mp4',
+      'assets/video/marcali/reel-4.mp4',
       'assets/video/marcali/reel-5.mp4',
       'assets/video/marcali/reel-6.mp4',
     ];
