@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video con IA — Producción Audiovisual | Laura Aires</title>
-<meta name="description" content="Caso de estudio: producción de video con herramientas de inteligencia artificial generativa, en formato vertical y horizontal. Dirección creativa por Laura Aires.">
+<meta name="description" content="Caso de estudio: producción de video con herramientas de inteligencia artificial generativa. Dirección creativa por Laura Aires.">
 <link rel="canonical" href="https://airescreative.com/video-ia.html">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Video con IA — Aires Creative Studio">
-<meta property="og:description" content="Producción de video con inteligencia artificial generativa, en formato vertical y horizontal.">
+<meta property="og:description" content="Producción de video con inteligencia artificial generativa.">
 <meta property="og:url" content="https://airescreative.com/video-ia.html">
 <meta property="og:image" content="https://airescreative.com/assets/images/video-ia/banner.webp">
 <meta property="og:locale" content="es_CO">
 <meta property="og:site_name" content="Aires Creative Studio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Video con IA — Aires Creative Studio">
-<meta name="twitter:description" content="Producción de video con inteligencia artificial generativa, en formato vertical y horizontal.">
+<meta name="twitter:description" content="Producción de video con inteligencia artificial generativa.">
 <meta name="twitter:image" content="https://airescreative.com/assets/images/video-ia/banner.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -433,13 +433,12 @@
   .light .cat-text p{ color:#5b5876; }
   .cat-media{ min-width:0; }
 
-  .format-label{ font-family:'Space Grotesk'; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mist); margin-bottom:14px; }
   .format-group{ margin-bottom:36px; }
   .format-group:last-child{ margin-bottom:0; }
 
   .filmstrip-wrap{ position:relative; }
   .filmstrip{ display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; height:420px; scrollbar-width:thin; scrollbar-color:var(--line) transparent; padding-bottom:4px; }
-  .filmstrip.short{ height:240px; }
+  .filmstrip.short{ height:560px; }
   .filmstrip::-webkit-scrollbar{ height:6px; }
   .filmstrip::-webkit-scrollbar-thumb{ background:var(--line); border-radius:100px; }
   .filmstrip::-webkit-scrollbar-track{ background:transparent; }
@@ -451,7 +450,7 @@
 
   .fade-edge{ position:absolute; top:0; right:0; bottom:4px; width:64px; background:linear-gradient(90deg,transparent,var(--ink)); pointer-events:none; }
 
-  @media (max-width:640px){ .filmstrip{ height:340px; } .filmstrip.short{ height:200px; } }
+  @media (max-width:640px){ .filmstrip{ height:340px; } .filmstrip.short{ height:280px; } }
 
   /* ============ SERVICES — editorial zigzag list (light bg) ============ */
   .svc-list{ display:flex; flex-direction:column; }
@@ -548,7 +547,7 @@
 <!-- ============ TAGS + NAV POR CATEGORÍA ============ -->
 <section class="proj-dark-lead" style="padding-top:70px;">
   <div class="wrap">
-    <p class="proj-blurb reveal" style="transition-delay:.1s">Exploración de video generado con inteligencia artificial, en distintos formatos y estilos — desde piezas horizontales hasta contenido vertical pensado para redes sociales.</p>
+    <p class="proj-blurb reveal" style="transition-delay:.1s">Exploración de video generado con inteligencia artificial, en distintos estilos y narrativas visuales.</p>
   </div>
 </section>
 
@@ -562,12 +561,11 @@
     <div class="cat-split">
       <div class="cat-text reveal reveal--left">
         <h3>Video generado con inteligencia artificial</h3>
-        <p>Una selección de piezas producidas con herramientas de IA generativa, explorando distintos estilos y narrativas visuales — la mayoría en formato vertical, pensado para redes sociales, y algunas en formato horizontal.</p>
+        <p>Una selección de piezas producidas con herramientas de IA generativa, explorando distintos estilos y narrativas visuales.</p>
       </div>
       <div class="cat-media reveal reveal--media">
 
         <div class="format-group">
-          <div class="format-label">Verticales</div>
           <div class="filmstrip-wrap">
             <div class="filmstrip">
               <div class="piece">
@@ -654,7 +652,6 @@
         </div>
 
         <div class="format-group">
-          <div class="format-label">Horizontales</div>
           <div class="filmstrip-wrap">
             <div class="filmstrip short">
               <div class="piece">
@@ -1071,6 +1068,15 @@
       requestAnimationFrame(loop);
     })();
   }
+
+  // Filmstrip videos — only one plays at a time
+  document.querySelectorAll('.filmstrip video').forEach((v) => {
+    v.addEventListener('play', () => {
+      document.querySelectorAll('.filmstrip video').forEach((other) => {
+        if (other !== v && !other.paused) other.pause();
+      });
+    });
+  });
 </script>
 
 </body>
