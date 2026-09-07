@@ -622,7 +622,7 @@
             <div class="reel-phone">
               <div class="reel-screen">
                 <div class="reel-notch"></div>
-                <video class="reel-video" id="reelVideo" autoplay muted loop playsinline poster="assets/video/alquilando/reel-poster.jpg"></video>
+                <video class="reel-video" id="reelVideo" controls loop playsinline poster="assets/video/alquilando/reel-poster.jpg"></video>
               </div>
             </div>
             <div class="reel-dots" id="reelDots"></div>
@@ -946,16 +946,16 @@
     });
     const reelDots = reelDotsWrap.children;
 
-    function reelRender() {
+    function reelRender(autoplay) {
       reelVideo.src = reels[reelCurrent];
       reelVideo.classList.toggle('fit-contain', reels[reelCurrent].includes('propietarios2'));
       reelVideo.load();
-      reelVideo.play().catch(() => {});
+      if (autoplay) reelVideo.play().catch(() => {});
       [...reelDots].forEach((d, i) => d.classList.toggle('active', i === reelCurrent));
     }
     function reelGoTo(i) {
       reelCurrent = (i + reels.length) % reels.length;
-      reelRender();
+      reelRender(true);
     }
     document.getElementById('reelPrev').addEventListener('click', () => reelGoTo(reelCurrent - 1));
     document.getElementById('reelNext').addEventListener('click', () => reelGoTo(reelCurrent + 1));
@@ -963,7 +963,7 @@
       if (e.key === 'ArrowLeft') reelGoTo(reelCurrent - 1);
       if (e.key === 'ArrowRight') reelGoTo(reelCurrent + 1);
     });
-    reelRender();
+    reelRender(false);
   }
 
   // Lightbox — click a mockup image to view it enlarged
