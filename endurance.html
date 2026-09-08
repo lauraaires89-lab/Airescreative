@@ -120,11 +120,19 @@
   @keyframes fade-in{ to{ opacity:1; } }
   @media (prefers-reduced-motion:reduce){ .hero-content .eyebrow, .hero-title, .hero-sub, .hero-ctas, .scroll-cue{ animation:none; opacity:1; transform:none; } }
 
-  nav{ position:fixed; top:0; left:0; right:0; z-index:80; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; backdrop-filter:blur(14px); background:rgba(11,11,30,0.55); border-bottom:1px solid var(--line); }
+  nav{ position:fixed; top:0; left:0; right:0; z-index:80; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:18px 40px; backdrop-filter:blur(14px); background:rgba(11,11,30,0.55); border-bottom:1px solid var(--line); }
   nav img{ height:32px; }
-  nav .navlinks{ display:flex; gap:30px; font-family:'Archivo'; font-size:13.5px; letter-spacing:0.03em; color:var(--mist); }
+  nav .navlinks{ display:flex; gap:30px; font-family:'Archivo'; font-size:13.5px; letter-spacing:0.03em; color:var(--mist); justify-self:center; grid-column:2; }
   nav .navlinks a{ text-decoration:none; transition:color .2s; }
   nav .navlinks a:hover{ color:var(--paper); }
+  .lang-switch{ display:flex; align-items:center; gap:7px; font-family:'Archivo'; font-weight:600; font-size:12.5px; letter-spacing:0.04em; border:1px solid var(--line); border-radius:100px; padding:6px 13px; }
+  .lang-switch .lang-cur{ color:var(--paper); }
+  .lang-switch .lang-sep{ color:var(--line); }
+  .lang-switch a{ color:var(--mist); text-decoration:none; transition:color .2s; }
+  .lang-switch a:hover{ color:var(--aqua); }
+  .nav-mobile .lang-switch{ font-size:14px; padding:8px 16px; }
+  .nav-right{ display:flex; align-items:center; gap:16px; justify-self:end; grid-column:3; }
+  @media (max-width:720px){ .nav-right{ gap:12px; } }
   nav .navlinks a.active{ color:var(--paper); position:relative; }
   nav .navlinks a.active::after{ content:''; position:absolute; left:50%; transform:translateX(-50%); bottom:-8px; width:14px; height:2px; border-radius:1px; background:var(--aqua); }
   @media (max-width:720px){ nav .navlinks{ display:none; } nav{ padding:14px 20px; } nav img{ height:26px; } }
@@ -529,7 +537,7 @@
   .adv-card p{ font-size:14px; color:var(--mist); line-height:1.6; }
 
   /* ============ MOBILE NAV (hamburger) ============ */
-  nav .nav-logo{ display:flex; align-items:center; }
+  nav .nav-logo{ display:flex; align-items:center; justify-self:start; grid-column:1; }
   .nav-burger{ display:none; flex-direction:column; gap:5px; width:36px; height:36px; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; padding:0; z-index:70; position:relative; }
   .nav-burger span{ display:block; width:24px; height:2.5px; background:var(--paper); border-radius:2px; transition:transform .3s cubic-bezier(.2,.8,.3,1.3), opacity .2s ease; }
   .nav-burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
@@ -561,13 +569,17 @@
     <a href="trabajo.html" class="active">Proyectos</a>
     <a href="servicios.html">Servicios</a>
   </div>
-  <a class="btn btn-primary" href="#contacto">Contacto</a>
-  <button class="nav-burger" id="navBurger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  <div class="nav-right">
+    <span class="lang-switch"><span class="lang-cur">ES</span><span class="lang-sep">/</span><a href="en/endurance.html">EN</a></span>
+    <a class="btn btn-primary" href="#contacto">Contacto</a>
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 <div class="nav-mobile" id="navMobile">
   <a href="index.html">Inicio</a>
   <a href="trabajo.html">Proyectos</a>
   <a href="servicios.html">Servicios</a>
+  <span class="lang-switch"><span class="lang-cur">ES</span><span class="lang-sep">/</span><a href="en/endurance.html">EN</a></span>
   <a class="btn btn-primary" href="#contacto">Contacto</a>
 </div>
 
