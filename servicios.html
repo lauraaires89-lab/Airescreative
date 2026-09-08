@@ -80,15 +80,15 @@
       "name": "¿Qué servicios de diseño ofrece Laura Aires?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dirección creativa integral: branding e identidad visual, diseño UX/UI, contenido y estrategia para redes sociales, producción audiovisual, fotografía y creatividad con inteligencia artificial generativa — todo bajo una misma dirección, de principio a fin."
+        "text": "Dirección creativa integral: branding e identidad visual, diseño UX/UI, diseño para redes sociales, producción audiovisual, fotografía y creatividad con inteligencia artificial generativa — todo bajo una misma dirección, de principio a fin."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Trabaja con marcas fuera de Colombia?",
+      "name": "¿Trabaja con marcas de cualquier parte del mundo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. Aunque está basada en Bogotá, ha trabajado con marcas y clientes de distintos países, integrándose a proyectos locales e internacionales de forma remota."
+        "text": "Sí. Aunque está basada en Bogotá, trabaja con marcas y clientes de distintos países alrededor del mundo, integrándose a proyectos de forma remota sin importar la ubicación."
       }
     },
     {
@@ -448,9 +448,14 @@
   .adv-card h4{ font-size:16.5px; margin-bottom:10px; }
   .adv-card p{ font-size:14px; color:var(--mist); line-height:1.6; }
   .faq-list{ display:flex; flex-direction:column; border-top:1px solid var(--line); }
-  .faq-item{ padding:28px 0; border-bottom:1px solid var(--line); }
-  .faq-item h3{ font-family:'Sora'; font-weight:700; font-size:17px; margin-bottom:10px; }
-  .faq-item p{ font-size:14.5px; color:var(--mist); line-height:1.65; max-width:720px; }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-item summary{ list-style:none; cursor:pointer; padding:24px 40px 24px 0; position:relative; font-family:'Sora'; font-weight:700; font-size:17px; transition:color .2s; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::marker{ content:none; }
+  .faq-item summary:hover{ color:var(--aqua); }
+  .faq-item summary::after{ content:'+'; position:absolute; right:2px; top:20px; font-size:24px; font-weight:400; color:var(--mist); line-height:1; transition:transform .25s ease; }
+  .faq-item[open] summary::after{ transform:rotate(45deg); }
+  .faq-item p{ font-size:14.5px; color:var(--mist); line-height:1.65; max-width:720px; padding-bottom:26px; }
 
   /* ============ MOBILE NAV (hamburger) ============ */
   nav .nav-logo{ display:flex; align-items:center; }
@@ -566,15 +571,15 @@
 <section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="htxt"><span class="eyebrow">Preguntas frecuentes</span><h2>Antes de <span class="grad">escribirme</span></h2></div>
+      <div class="htxt"><span class="eyebrow">Preguntas frecuentes</span><h2>Resolvamos tus <span class="grad">dudas</span></h2></div>
     </div>
     <div class="faq-list">
-      <div class="faq-item reveal"><h3>¿Qué servicios de diseño ofrece Laura Aires?</h3><p>Dirección creativa integral: branding e identidad visual, diseño UX/UI, contenido y estrategia para redes sociales, producción audiovisual, fotografía y creatividad con inteligencia artificial generativa — todo bajo una misma dirección, de principio a fin.</p></div>
-      <div class="faq-item reveal"><h3>¿Trabaja con marcas fuera de Colombia?</h3><p>Sí. Aunque está basada en Bogotá, ha trabajado con marcas y clientes de distintos países, integrándose a proyectos locales e internacionales de forma remota.</p></div>
-      <div class="faq-item reveal"><h3>¿Cómo es el proceso para empezar un proyecto?</h3><p>Todo comienza con una conversación para entender el objetivo, la marca y el alcance del proyecto. A partir de ahí se define una propuesta a la medida — el primer paso es escribir por el formulario de contacto o por correo.</p></div>
-      <div class="faq-item reveal"><h3>¿Integra inteligencia artificial en los proyectos?</h3><p>Sí, cuando aporta valor real: generación de imágenes, apoyo en producción audiovisual o exploración creativa — siempre con dirección de arte y criterio editorial humano detrás de cada decisión.</p></div>
-      <div class="faq-item reveal"><h3>¿Con qué tipo de marcas ha trabajado?</h3><p>Marcas de sectores muy distintos — proptech, retail, servicios, tecnología, spas, e-commerce — desde startups hasta compañías establecidas, con más de 75 marcas acompañadas en más de 16 años de trayectoria.</p></div>
-      <div class="faq-item reveal"><h3>¿Solo hace branding o también diseño digital?</h3><p>Ambos, y los combina: identidad de marca, sitios web, interfaces UX/UI, redes sociales y producción audiovisual — un servicio integral en vez de piezas sueltas y desconectadas entre sí.</p></div>
+      <details class="faq-item reveal"><summary>¿Qué servicios de diseño ofrece Laura Aires?</summary><p>Dirección creativa integral: branding e identidad visual, diseño UX/UI, diseño para redes sociales, producción audiovisual, fotografía y creatividad con inteligencia artificial generativa — todo bajo una misma dirección, de principio a fin.</p></details>
+      <details class="faq-item reveal"><summary>¿Trabaja con marcas de cualquier parte del mundo?</summary><p>Sí. Aunque está basada en Bogotá, trabaja con marcas y clientes de distintos países alrededor del mundo, integrándose a proyectos de forma remota sin importar la ubicación.</p></details>
+      <details class="faq-item reveal"><summary>¿Cómo es el proceso para empezar un proyecto?</summary><p>Todo comienza con una conversación para entender el objetivo, la marca y el alcance del proyecto. A partir de ahí se define una propuesta a la medida — el primer paso es escribir por el formulario de contacto o por correo.</p></details>
+      <details class="faq-item reveal"><summary>¿Integra inteligencia artificial en los proyectos?</summary><p>Sí, cuando aporta valor real: generación de imágenes, apoyo en producción audiovisual o exploración creativa — siempre con dirección de arte y criterio editorial humano detrás de cada decisión.</p></details>
+      <details class="faq-item reveal"><summary>¿Con qué tipo de marcas ha trabajado?</summary><p>Marcas de sectores muy distintos — proptech, retail, servicios, tecnología, spas, e-commerce — desde startups hasta compañías establecidas, con más de 75 marcas acompañadas en más de 16 años de trayectoria.</p></details>
+      <details class="faq-item reveal"><summary>¿Solo hace branding o también diseño digital?</summary><p>Ambos, y los combina: identidad de marca, sitios web, interfaces UX/UI, redes sociales y producción audiovisual — un servicio integral en vez de piezas sueltas y desconectadas entre sí.</p></details>
     </div>
   </div>
 </section>
