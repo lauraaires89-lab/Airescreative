@@ -493,7 +493,14 @@
 </div>
 
 <!-- ============ BANNER ============ -->
-<header class="hero page-banner" id="banner" style="background:linear-gradient(rgba(11,11,30,.6),rgba(11,11,30,.9)), url('assets/images/fluid-back.jpg') center/cover;">
+<header class="hero page-banner" id="banner">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline poster="assets/video/servicios-hero-poster.jpg">
+      <source src="assets/video/servicios-hero.mp4" type="video/mp4">
+    </video>
+    <div class="fluid-vignette"></div>
+    <div class="fluid-fog"></div>
+  </div>
   <div class="grain"></div>
   <div class="hero-content">
     <span class="breadcrumb"><a href="index.html">Inicio</a> → Servicios</span>
@@ -649,6 +656,11 @@
   // Safety net: force-reveal everything if something goes wrong (long delay so it never races the real scroll animation)
   setTimeout(() => { revealEls.forEach(el => el.classList.add('in')); }, 8000);
 
+  const heroVideo0 = document.querySelector('.hero-video-wrap video');
+  if (heroVideo0) {
+    heroVideo0.playbackRate = 0.6;
+    heroVideo0.addEventListener('loadedmetadata', () => { heroVideo0.playbackRate = 0.6; });
+  }
 
   // Mobile hamburger menu
   const navBurger = document.getElementById('navBurger');
