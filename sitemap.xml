@@ -1,53 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://airescreative.com/</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/"/>
   </url>
   <url>
     <loc>https://airescreative.com/trabajo.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/trabajo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/trabajo.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/work.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/trabajo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/trabajo.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/servicios.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/servicios.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/servicios.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/services.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/servicios.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/servicios.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/sweetest.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/sweetest.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/sweetest.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/sweetest.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/sweetest.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/sweetest.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/sweetest.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/sweetest.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/subit.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/subit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/subit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/subit.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/subit.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/subit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/subit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/subit.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/endurance.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/endurance.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/endurance.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/endurance.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/endurance.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/endurance.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/endurance.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/endurance.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/alquilando.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/alquilando.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/alquilando.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/alquilando.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/alquilando.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/alquilando.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/alquilando.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/alquilando.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/sundays.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/sundays.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/sundays.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/sundays.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/sundays.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/sundays.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/sundays.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/sundays.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/video-ia.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/video-ia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/ai-video.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/video-ia.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/ai-video.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/video-ia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/ai-video.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/video-ia.html"/>
   </url>
   <url>
     <loc>https://airescreative.com/marcali.html</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/marcali.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/marcali.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/marcali.html"/>
+  </url>
+  <url>
+    <loc>https://airescreative.com/en/marcali.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://airescreative.com/marcali.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://airescreative.com/en/marcali.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://airescreative.com/marcali.html"/>
   </url>
 </urlset>
