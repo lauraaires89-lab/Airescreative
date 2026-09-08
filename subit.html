@@ -432,7 +432,7 @@
   .cat-split{ display:grid; grid-template-columns:3fr 7fr; gap:50px; align-items:start; margin:46px 0; }
   .cat-split.rev{ grid-template-columns:7fr 3fr; }
   .cat-split.rev .cat-text{ order:2; }
-  @media (max-width:900px){ .cat-split, .cat-split.rev{ grid-template-columns:1fr; } .cat-split.rev .cat-text{ order:0; } }
+  @media (max-width:900px){ .cat-split, .cat-split.rev{ grid-template-columns:1fr; } .cat-split.rev .cat-text{ order:-1; } }
   .cat-text h3{ font-family:'Sora'; font-weight:700; font-size:clamp(19px,2.2vw,24px); margin-bottom:12px; color:var(--paper); }
   .cat-text p{ font-size:14.5px; line-height:1.65; color:var(--mist); }
   .light .cat-text h3{ color:var(--ink); }
