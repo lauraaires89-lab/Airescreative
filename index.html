@@ -139,6 +139,14 @@
   .proj-card .pc-tint{ position:absolute; inset:0; background:linear-gradient(180deg,transparent 35%,rgba(11,11,30,0.88) 100%); }
   .proj-card .pc-info{ position:absolute; left:0; right:0; bottom:0; padding:20px; }
   .proj-card .pc-tag{ font-family:'Space Grotesk'; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--aqua); margin-bottom:6px; display:block; }
+
+  /* ============ BEHANCE CTA (franja degradada) ============ */
+  .be-strip{ margin-top:22px; display:flex; align-items:center; justify-content:center; gap:16px; padding:22px 28px; border-radius:20px; background:linear-gradient(100deg,var(--iris),var(--sky) 55%,var(--aqua)); text-decoration:none; text-align:center; flex-wrap:wrap; transition:transform .25s, box-shadow .25s; }
+  .be-strip:hover{ transform:translateY(-2px); box-shadow:0 16px 34px -14px rgba(108,92,224,0.55); }
+  .be-strip img{ width:44px; height:44px; flex:none; }
+  .be-strip .be-strip-txt{ font-family:'Sora'; font-weight:600; font-size:14.5px; color:#fff; }
+  .be-strip .be-strip-cta svg{ display:inline-block; vertical-align:-2px; margin-left:4px; width:14px; height:14px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  @media (max-width:640px){ .be-strip{ padding:18px 22px; } .be-strip-q, .be-strip-cta{ display:block; } .be-strip-q{ margin-bottom:6px; } }
   .proj-card h4{ font-family:'Sora'; font-size:18px; font-weight:700; }
   .mosaic-note{ margin-top:20px; font-family:'Space Grotesk'; font-size:12.5px; color:var(--mist); }
 
@@ -357,6 +365,10 @@
       <a class="proj-card p3 reveal" href="endurance.html"><img src="assets/images/endurance/banner.webp" alt="Endurance" style="object-position:50% 45%"><div class="pc-tint"></div><div class="pc-info"><span class="pc-tag">Identidad Corporativa</span><h4>Endurance</h4></div></a>
       <a class="proj-card p4 reveal" href="alquilando.html"><img src="assets/images/alquilando/banner.webp" alt="Alquilando" style="object-position:50% 30%"><div class="pc-tint"></div><div class="pc-info"><span class="pc-tag">Identidad de Marca</span><h4>Alquilando</h4></div></a>
     </div>
+    <a class="be-strip reveal" href="https://www.behance.net/lauraaires" target="_blank" rel="noopener">
+      <img src="assets/images/behance-icon.svg" alt="Behance" width="44" height="44">
+      <span class="be-strip-txt"><span class="be-strip-q">¿Quieres ver proyectos adicionales?</span> <span class="be-strip-cta">Visítame en Behance<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+    </a>
   </div>
 </section>
 
